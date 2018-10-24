@@ -12,16 +12,30 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($result['data'] as $row): ?>
+                <?php
+                    $item_terms = array();
+                    $term_names = array();
+                ?>
+                <?php foreach($result['img_data'] as $row): ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['path']; ?></td>
-                        <td><?php echo $row['name']; ?></td>
-                        <td>*</td>
+                        <td><?php echo $row['file_id']; ?></td>
+                        <td><?php echo $row['file_path']; ?></td>
+                        <td><?php echo $row['file_name']; ?></td>
+                        <td>
+                            <?php
+                                $item_terms = get_terms($result['term_rels'], $row['file_id']);
+
+                                if (! empty($item_terms)) {
+                                    foreach ($item_terms as $term_id) {
+                                        echo '/' . get_term_name($result['terms'], $term_id);
+                                    }
+                                }
+                                $item_terms = '';
+                            ?>
+                        </td>
                     <tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <?php //print_r($result['data']); ?>
     <?php endif; ?>
 </div>
