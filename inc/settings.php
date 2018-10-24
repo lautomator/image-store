@@ -10,4 +10,5 @@ $db_config = array(
     'db' => 'image_store'
 );
 
-$cache = '2018-10-24';
+$cache = rand(); // dev only
+// $cache = '2018-10-24';

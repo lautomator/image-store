@@ -5,8 +5,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>path</th>
+                    <th>img</th>
                     <th>name</th>
                     <th>tags</th>
                 </tr>
@@ -18,8 +17,7 @@
                 ?>
                 <?php foreach($result['img_data'] as $row): ?>
                     <tr>
-                        <td><?php echo $row['file_id']; ?></td>
-                        <td><?php echo $row['file_path']; ?></td>
+                        <td><img class="thumb-img" src="<?php echo $row['file_path'] . $row['file_name']; ?>"></td>
                         <td><?php echo $row['file_name']; ?></td>
                         <td>
                             <?php
