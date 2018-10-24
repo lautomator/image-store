@@ -1,12 +1,17 @@
 <div class="container">
-    <ul>
-        <li>register an image</li>
-        <li>edit an image
-            <ul>
-                <li>modify properties</li>
-                <li>tag</li>
-                <li>delete</li>
-            </ul>
-        </li>
-    </ul>
+    <table class="table">
+        <thead>
+            <th>id</th>
+            <th>path</th>
+            <th>name</th>
+            <th>tags</th>
+        </thead>
+        <tbody>
+            <td>*</td>
+            <td>*</td>
+            <td>*</td>
+            <td>*</td>
+        </tbody>
+    </table>
+
 </div>

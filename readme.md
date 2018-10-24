@@ -1,4 +1,5 @@
-#Image Store
+Image Store
+-----------
 
 Tag and view pictures.
 

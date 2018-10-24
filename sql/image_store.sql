@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : utf-8
 
- Date: 10/24/2018 14:37:00 PM
+ Date: 10/24/2018 15:53:38 PM
 */
 
 SET NAMES utf8mb4;
@@ -25,8 +25,9 @@ CREATE TABLE `images` (
   `file_id` int(11) NOT NULL AUTO_INCREMENT,
   `file_path` varchar(255) NOT NULL,
   `file_name` varchar(255) NOT NULL,
+  `file_ext` varchar(255) NOT NULL,
   PRIMARY KEY (`file_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `terms`
