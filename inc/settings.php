@@ -11,4 +11,3 @@ $db_config = array(
 );
 
 $cache = '2018-10-24';
-$path_to_images  = $home . 'uploads/';
