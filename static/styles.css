@@ -1,1 +1,25 @@
-.thumb-img { height: 100px; }
+.ist-thumb-img { height: 100px; }
+
+.ist-tag {
+    border: dotted 1px silver;
+    border-radius: 3px;
+    color: silver;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 0;
+    padding: 5px;
+}
+
+a { color: black; }
+
+a:hover { color: limegreen; }
+
+a .ist-tag:hover {
+    border: dotted 1px limegreen;
+    color: limegreen;
+
+}
+
+.ist-file-names {
+    word-break: break-all;
+}

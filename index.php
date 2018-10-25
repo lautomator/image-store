@@ -1,6 +1,7 @@
 <?php
 
 require_once('inc/settings.php');
+require_once('inc/urls.php');
 require_once('inc/main.php');
 require_once('inc/data.php');
 require_once('inc/header.php');
