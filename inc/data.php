@@ -31,11 +31,13 @@ if ($success) {
                 'file_ext' => $row['file_ext']
             ));
         }
-        $result['record_count'] = count($result['img_data']);
 
-        if ($result['record_count'] = 0) {
+
+        if (count($result['img_data']) == 0) {
             $result['status'] = 1;
             $result['err_msg'] = 'There is no data available.';
+        } else {
+            $result['record_count'] = count($result['img_data']);
         }
     }
 
