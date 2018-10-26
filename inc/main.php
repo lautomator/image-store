@@ -30,3 +30,58 @@ function get_term_name($terms, $term_id) {
     }
     return $term_name;
 }
+
+function paginate($records, $page_no, $max_records) {
+    // Returns all of the records for a specified
+    // page <array>, a pagination code <int>
+    // (see below), and the total nuber of pages
+    // <int>. Takes in the records <array>,
+    // current page <int> and maximum number of
+    // records per page <int>.
+
+    // pagination code key:
+    // ====================
+    // 0 = more pages available
+    // 1 = more or less pages available
+    // 2 = less pages available
+    // 3 = results fit on one page
+
+    $page_of_records = array(
+        'pages' => array(),
+        'pagination_code' => 0,
+        'total_pages' => 1,
+        'current_page' => 1
+    );
+
+    // get the starting point
+    $index = ($page_no - 1) * $max_records;
+    // get the ending point
+    $index_end = $index + $max_records;
+
+    // store stats
+    $total_pages = ceil(count($records) / $max_records);
+    $page_of_records['total_pages'] = $total_pages;
+    $page_of_records['current_page'] = $page_no;
+
+    // gather the records for a page
+    while ($index < $index_end) {
+        array_push($page_of_records['pages'], $records[$index]);
+        $index += 1;
+    }
+
+    // determine the pagination code
+    if ($page_no > 1 && $page_no < $total_pages) {
+        // there are more or less pages available
+        $page_of_records['pagination_code'] = 1;
+    } elseif ($page_no == $total_pages && $total_pages > 1) {
+        // you are on the last page
+        $page_of_records['pagination_code'] = 2;
+    } elseif ($total_pages == 1) {
+        // all records fit on 1 page
+        $page_of_records['pagination_code'] = 3;
+    } else {
+        // we are on page 1 and there are more pages to view
+        $page_of_records['pagination_code'] = 0;
+    }
+    return $page_of_records;
+}

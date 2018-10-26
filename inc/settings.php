@@ -12,4 +12,5 @@ $db_config = array(
 
 $cache = rand(); // dev only
 // $cache = '2018-XX-XX';
-$max_records_per_page = 2;
+$max_records_per_page = 4;
+$default_page = 1;

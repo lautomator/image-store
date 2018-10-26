@@ -26,11 +26,19 @@ a .ist-tag:hover {
     word-break: break-all;
 }
 
-input[type=submit],
-button {
+.ist-page-button {
     border-radius: 3px;
     cursor: pointer;
+    padding: 5px 7px;
 }
+
+.ist-stats-bar {
+    font-size: 12px;
+    margin: 25px auto;
+    width: 100%;
+}
+
+
 
 
 /* desktop only */
