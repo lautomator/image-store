@@ -1,6 +1,4 @@
-.ist-thumb-img {
-    height: 100px;
-}
+.ist-thumb-img { height: 100px; }
 
 .ist-tag {
     border: dotted 1px silver;
@@ -22,9 +20,7 @@ a .ist-tag:hover {
 
 }
 
-.ist-file-names {
-    word-break: break-all;
-}
+.ist-file-names { word-break: break-all; }
 
 .ist-page-button {
     border-radius: 3px;
@@ -32,10 +28,16 @@ a .ist-tag:hover {
     padding: 5px 7px;
 }
 
+.ist-pagination-bar {
+    text-align: center;
+    width: 100%;
+}
+
 .ist-stats-bar {
     font-size: 12px;
     margin: 25px auto;
-    width: 100%;
+    text-align: center;
+    width: 300px;
 }
 
 
