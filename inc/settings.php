@@ -1,7 +1,5 @@
 <?php
 
-$home = 'http://dev.local/image-store/';
-
 // settings for localhost
 $db_config = array(
     'host' => '127.0.0.1:3306',

@@ -9,7 +9,7 @@
 
     <title>Image Store</title>
 
-    <link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="static/styles.css?v=<?php echo $cache; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo $static_dir . 'vendor/bootstrap/css/bootstrap.min.css'; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo $static_dir . 'styles.css?v=' . $cache; ?>">
 </head>
 <body>
