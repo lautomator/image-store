@@ -12,13 +12,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $home . $urls['register']; ?>">Add</a>
+                    <a class="nav-link" href="<?php echo $urls['register']; ?>">Add</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $home . $urls['tags']; ?>">Tag Cloud</a>
+                    <a class="nav-link" href="<?php echo $urls['tags']; ?>">Tag Cloud</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $home . $urls['view_cart']; ?>">View</a>
+                    <a class="nav-link" href="<?php echo $urls['cart']; ?>">View</a>
                 </li>
             </ul>
         </div>

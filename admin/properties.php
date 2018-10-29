@@ -7,5 +7,5 @@ require('../views/view-properties.php');
 require_once('../inc/footer.php');
 
 echo '<pre>';
-print_r($all_records);
+print_r($result);
 echo '</pre>';
