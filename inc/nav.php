@@ -6,19 +6,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo $home; ?>">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+                <li class="nav-item <?php echo ($page == 'home' ? 'active' : ''); ?>">
+                    <a class="nav-link" href="<?php echo $home; ?>">Home<?php echo ($page == 'home' ? '<span class="sr-only">(current)</span>' : ''); ?></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $urls['register']; ?>">Add</a>
+                <li class="nav-item <?php echo ($page == 'register' ? 'active' : ''); ?>">
+                    <a class="nav-link" href="<?php echo $urls['register']; ?>">Add<?php echo ($page == 'register' ? '<span class="sr-only">(current)</span>' : ''); ?></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $urls['tags']; ?>">Tag Cloud</a>
+                <li class="nav-item <?php echo ($page == 'tags' ? 'active' : ''); ?>">
+                    <a class="nav-link" href="<?php echo $urls['tags']; ?>">Tag Cloud<?php echo ($page == 'tags' ? '<span class="sr-only">(current)</span>' : ''); ?></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $urls['cart']; ?>">View</a>
+                <li class="nav-item <?php echo ($page == 'cart' ? 'active' : ''); ?>">
+                    <a class="nav-link" href="<?php echo $urls['cart']; ?>">View<?php echo ($page == 'cart' ? '<span class="sr-only">(current)</span>' : ''); ?></a>
                 </li>
             </ul>
         </div>

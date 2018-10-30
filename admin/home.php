@@ -1,13 +1,11 @@
 <?php
 
-$page = 'home';
-$item_terms = array();
-
 if (isset ($_GET['t'])) {
     // process a tag query
     $t = array($_GET['t']);
     $record_ids = filter_records($result['term_rels'], $t);
     $records = get_records($result['img_data'], $record_ids);
+    $item_terms = array();
 } else {
     // get all of the records
     $records = $result['img_data'];

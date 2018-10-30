@@ -13,6 +13,8 @@
             <tbody>
                 <?php foreach($page_items as $row): ?>
                     <?php if (! empty($row)): ?>
+                        <?php $img_id = $row['file_id']; ?>
+                        <?php $item_terms = get_terms($result['term_rels'], $img_id); ?>
                         <tr>
                             <td><?php require('view-img-thmb.php'); ?></td>
                             <td><?php require('view-img-title.php'); ?></td>

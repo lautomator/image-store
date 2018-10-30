@@ -4,12 +4,17 @@ function get_terms($term_rels, $image_id) {
     // Returns the term ids <array> for a
     // a given image id <int>. Takes in
     // the term relationships <array> and
-    // the image id <int>.
+    // the image id <int>. An image id of
+    // -1 will return all of the term ids.
     $term_ids = array();
 
     foreach ($term_rels as $rel) {
         if ($rel['file_id'] == $image_id) {
             array_push($term_ids, $rel['term_id']);
+        } elseif ($image_id == -1) {
+            if (! in_array($rel['term_id'], $term_ids)) {
+                array_push($term_ids, $rel['term_id']);
+            }
         }
     }
     return $term_ids;
@@ -49,7 +54,8 @@ function get_records($all_records, $img_ids) {
     // Returns records <array> for the
     // given image ids <array>. Takes in
     // all of the records <array> and the
-    // image ids <array>.
+    // image ids <array>. Will also return
+    // a single record.
     $filtered = array();
 
     foreach ($all_records as $rec) {
@@ -114,3 +120,5 @@ function paginate($records, $page_no, $max_records) {
     }
     return $page_of_records;
 }
+
+

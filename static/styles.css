@@ -40,6 +40,12 @@ a .ist-tag:hover {
     width: 300px;
 }
 
+.ist-properties { margin: 25px auto; }
+
+.ist-cell-60 { width: 60%; }
+.ist-cell-40 { width: 40%; }
+.ist-review-img { width: 100%; }
+
 
 
 
