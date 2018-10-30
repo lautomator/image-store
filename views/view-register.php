@@ -1,0 +1,1 @@
+<p>register a new image here.</p>

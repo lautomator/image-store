@@ -1,5 +1,7 @@
 <?php
 
+$page = 'properties';
+
 require_once('../inc/loader.php');
 require_once('../inc/header.php');
 require_once('../inc/nav.php');

@@ -1,9 +1,9 @@
 <?php
 
-echo 'view cart selections here.';
+$page = 'cart';
 
-echo '<pre>';
-if (isset($_POST['selImgs'])) {
-    print_r($_POST);
-}
-echo '</pre>';
+require_once('../inc/loader.php');
+require_once('../inc/header.php');
+require_once('../inc/nav.php');
+require('../views/view-cart.php');
+require_once('../inc/footer.php');

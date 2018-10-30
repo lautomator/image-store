@@ -31,13 +31,42 @@ function get_term_name($terms, $term_id) {
     return $term_name;
 }
 
+function filter_records($term_rels, $term_ids) {
+    // Returns the image ids <array> for all given
+    // term ids <int>. Takes in the term relationships
+    // <array> and a term ids <array>.
+    $img_ids = array();
+
+    foreach ($term_rels as $rel) {
+        if (in_array($rel['term_id'], $term_ids)) {
+            array_push($img_ids, $rel['file_id']);
+        }
+    }
+    return $img_ids;
+}
+
+function get_records($all_records, $img_ids) {
+    // Returns records <array> for the
+    // given image ids <array>. Takes in
+    // all of the records <array> and the
+    // image ids <array>.
+    $filtered = array();
+
+    foreach ($all_records as $rec) {
+        if (in_array($rec['file_id'], $img_ids)) {
+            array_push($filtered, $rec);
+        }
+    }
+    return $filtered;
+}
+
 function paginate($records, $page_no, $max_records) {
     // Returns all of the records for a specified
     // page <array>, a pagination code <int>
     // (see below), and the total nuber of pages
     // <int>. Takes in the records <array>,
-    // current page <int> and maximum number of
-    // records per page <int>.
+    // current page <int>, and the maximum number
+    // of records per page <int>.
 
     // pagination code key:
     // ====================
