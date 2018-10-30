@@ -36,6 +36,21 @@ function get_term_name($terms, $term_id) {
     return $term_name;
 }
 
+function get_all_term_names($terms) {
+    // Returns all of the term names,
+    // a comma delineated string <str>
+    // to be used for populating the
+    // add tags form. Takes in the
+    // entire terms table <array>.
+    $tag_names = '';
+
+    foreach ($terms as $t) {
+        $tag_names .= $t['term_name'] . ',';
+    }
+    $tag_names = trim($tag_names, ',');
+    return $tag_names;
+}
+
 function filter_records($term_rels, $term_ids) {
     // Returns the image ids <array> for all given
     // term ids <int>. Takes in the term relationships
