@@ -49,7 +49,7 @@ input { margin: 4px 4px 4px 0; }
 .ist-cell-40 { width: 40%; }
 .ist-review-img { width: 100%; }
 
-
+.ist-form-suggestions { display: none; }
 
 
 /* desktop only */
@@ -61,4 +61,19 @@ input { margin: 4px 4px 4px 0; }
     }
 
     .ist-thumb-img:hover { height: 400px; }
+
+    .ist-form-suggestions {
+        background-color: yellow;
+        display: inline-block;
+        left: 15px;
+        opacity: 0.6;
+        position: absolute;
+        top: 50px;
+        width: 190px;
+    }
+
+    .ist-form-suggestions li {
+        cursor: pointer;
+        list-style: none;
+    }
 }

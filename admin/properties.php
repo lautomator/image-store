@@ -26,13 +26,3 @@ if (isset($_GET['img_id'])) {
 require('../views/view-properties.php');
 require('../views/view-tags-add-form.php');
 require_once('../inc/footer.php');
-
-// add the tag names to javascript
-if (isset($tag_names)) {
-    // tags
-    echo '<script>imageStoreApp.currentTags = "' . $tag_names . '".split(",").sort();</script>';
-    // html targets
-    echo '<script>imageStoreApp.targets = {"inputTag": document.getElementById("addTag"), "formSuggestions": document.getElementsByClassName("ist-form-suggestions")}</script>';
-    // run listener function
-    echo '<script>imageStoreApp.targets.inputTag.addEventListener("keypress", function(item){imageStoreApp.tagPrefill(imageStoreApp.targets, imageStoreApp.currentTags, item.key)});</script>';
-}
