@@ -13,6 +13,7 @@ if (isset($_POST)) {
     $err_msg = '';
     $terms_updated = false;
     $redirect = 'Location: ' . $urls['properties'] . '?img_id=' . $img_id;
+    $this_img_terms = get_terms($result['term_rels'], $img_id);
 
     // check for valid input (letters only)
     if (validate_user_input($user_in)) {
@@ -23,6 +24,9 @@ if (isset($_POST)) {
 
         // check for duplicates
         if (check_for_dup_term($result['terms'], $term['slug'])) {
+            // check to see if this item has the same term
+
+
             // authorize the insertion
             $can_add_term = true;
         } else {

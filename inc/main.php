@@ -199,4 +199,14 @@ function check_for_dup_term($terms, $term_slug) {
     return $is_unique;
 }
 
+// function check_img_has_term($term_rels, $img_id) {
+//     // Returns true if the img id <int> is already
+//     // associated with the image in question.
+//     // Takes in the term rels <array>.
+//     $has_term = false;
+//     foreach ($term_rels as $tr) {
+
+//     }
+// }
+
 
