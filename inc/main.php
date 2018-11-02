@@ -20,6 +20,21 @@ function get_terms($term_rels, $image_id) {
     return $term_ids;
 }
 
+function get_term_id($terms, $slug) {
+    // Returns the term id <int>
+    // from the given term slug
+    // <str>. Takes in all of the
+    // terms <array>.
+    $term_id = null;
+    foreach ($terms as $t) {
+        if ($t['term_slug'] == $slug) {
+            $term_id = $t['term_id'];
+            break;
+        }
+    }
+    return $term_id;
+}
+
 function get_term_name($terms, $term_id) {
     // Returns the name of the term <str>
     // from the given term id <int>. Takes
@@ -134,6 +149,54 @@ function paginate($records, $page_no, $max_records) {
         $page_of_records['pagination_code'] = 0;
     }
     return $page_of_records;
+}
+
+function validate_user_input($userInput) {
+    // Returns true <bool> if a term is text.
+    // Only a-z A-Z characters are accepted.
+    // Takes in the user input <string>.
+    $is_valid = false;
+    // strip any spaces
+    $in = trim($userInput, ' ');
+    $in = str_replace(' ', '', $userInput);
+
+    if (ctype_alpha($in)) {
+        $is_valid = true;
+    }
+    return $is_valid;
+}
+
+function create_term_slug($valid_tag) {
+    // Returns a term slug (all lowercase
+    // and a dash for spaces) and the
+    // term name (as it was entered)
+    // <array>. Takes in a validated
+    // tag name <str>;
+    $term = array(
+        'name' => '',
+        'slug' => ''
+    );
+
+    $term['name'] = $valid_tag;
+    $term['slug'] = str_replace(' ', '-', strtolower($valid_tag));
+    $term['slug'] = trim($term['slug'], '-');
+    return $term;
+}
+
+function check_for_dup_term($terms, $term_slug) {
+    // Returns true <bool> if there is no
+    // duplicate term found and false if
+    // there is a duplicate. Takes in the
+    // term slug <str> and the terms <array>.
+    $is_unique = true;
+
+    foreach ($terms as $t) {
+        if ($term_slug == $t['term_slug']) {
+            $is_unique = false;
+            break;
+        }
+    }
+    return $is_unique;
 }
 
 

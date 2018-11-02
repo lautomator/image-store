@@ -17,6 +17,12 @@ if (isset($_GET['img_id'])) {
         $item_terms = get_terms($result['term_rels'], $_GET['img_id']);
         $img_path = $home . $record['file_path'] . $record['file_name'] . '.' . $record['file_ext'];
         $tag_names = get_all_term_names($result['terms']);
+
+        // get any error reportage
+        if (isset($_GET['err'])) {
+             $err_msg = $_GET['err'];
+        }
+
         $render = true;
     }
 } else {
