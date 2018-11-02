@@ -11,5 +11,5 @@
 </div>
 
 <div class="ist-stats-bar">
-    <p>Total Records: <span class="text-success"><?php echo count($all_records); ?></span> | Page: <span class="text-success"><?php echo $page_info['current_page']; ?></span> | Total pages: <span class="text-success"><?php echo $page_info['total_pages']; ?></span>
+    <p>Total Records: <span class="text-success"><?php echo count($records); ?></span> | Page: <span class="text-success"><?php echo $page_info['current_page']; ?></span> | Total pages: <span class="text-success"><?php echo $page_info['total_pages']; ?></span>
 </p>
