@@ -49,7 +49,7 @@ input { margin: 4px 4px 4px 0; }
 .ist-cell-40 { width: 40%; }
 .ist-review-img { width: 100%; }
 
-.ist-form-suggestions { display: none; }
+.ist-form-suggestions-panel { display: none; }
 
 
 /* desktop only */
@@ -62,9 +62,9 @@ input { margin: 4px 4px 4px 0; }
 
     .ist-thumb-img:hover { height: 400px; }
 
-    .ist-form-suggestions {
-        background-color: yellow;
-        display: inline-block;
+    .ist-form-suggestions-panel {
+        border: 1px dotted limegreen;
+        display: none;
         left: 15px;
         opacity: 0.6;
         position: absolute;
@@ -72,8 +72,14 @@ input { margin: 4px 4px 4px 0; }
         width: 190px;
     }
 
-    .ist-form-suggestions li {
+    .ist-form-suggestions {
         cursor: pointer;
         list-style: none;
+    }
+
+    .ist-form-suggestions li {
+        color: limegreen;
+        margin-left: -25px;
+        width: 100%;
     }
 }

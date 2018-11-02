@@ -9,10 +9,12 @@
                 imageStoreApp.currentTags = "<?php echo $tag_names; ?>".split(",").sort();
                 imageStoreApp.targets = {
                     "inputTag": document.getElementById("addTag"),
-                    "formSuggestions": document.getElementsByClassName("ist-form-suggestions")
+                    "formSuggestions": document.getElementsByClassName("ist-form-suggestions"),
+                    "formSuggestionsPanel": document.getElementsByClassName("ist-form-suggestions-panel"),
+                    "tagSuggestion": document.getElementsByClassName("ist-tag-suggestion")
                 }
 
-                // run the listener function
+                // listen for input
                 imageStoreApp.inputListener(imageStoreApp.targets);
             </script>
         <?php endif; ?>
