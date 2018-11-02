@@ -26,7 +26,8 @@ if (isset($_POST)) {
             // authorize the insertion
             $can_add_term = true;
         } else {
-            $err_msg = $term['name'] . ' already exists.';
+            // if the term already exists, update the term rels
+            $terms_updated = true;
         }
     } else {
         $err_msg = ' Tags can only have letters and spaces.';
