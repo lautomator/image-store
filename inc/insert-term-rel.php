@@ -4,6 +4,8 @@ require_once('urls.php');
 require_once('main.php');
 require_once('data.php');
 
+$can_add_term_rel = false;
+
 if (isset($_GET)) {
     $img_id = $_GET['img_id'];
     $slug = $_GET['slug'];
@@ -15,7 +17,10 @@ if (isset($img_id)) {
     $term_id = get_term_id($result['terms'], $slug);
 
     if (! is_null($term_id)) {
-        $can_add_term_rel = true;
+        // check for duplicate term relationship
+        if (check_img_has_term($result['term_rels'], $img_id, $term_id) == false) {
+            $can_add_term_rel = true;
+        }
     } else {
         $err_msg = 'There was a problem getting the term id.';
         header($redirect . '&err=' . $err_msg);
@@ -39,4 +44,6 @@ if ($can_add_term_rel) {
         $err_msg = 'There was a problem connecting to the databse (term rels).';
         header($redirect . '&err=' . $err_msg);
     }
+} else {
+    header($redirect);
 }

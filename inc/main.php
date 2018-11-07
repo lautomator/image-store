@@ -199,14 +199,31 @@ function check_for_dup_term($terms, $term_slug) {
     return $is_unique;
 }
 
-// function check_img_has_term($term_rels, $img_id) {
-//     // Returns true if the img id <int> is already
-//     // associated with the image in question.
-//     // Takes in the term rels <array>.
-//     $has_term = false;
-//     foreach ($term_rels as $tr) {
+function check_img_has_term($term_rels, $img_id, $term_id) {
+    // Returns true if the img id <int> is already
+    // associated with the image in question.
+    // Takes in the term rels <array>.
+    $has_term_rel = false;
+    $resulting_rels = array();
+    $term_rel = array($img_id, $term_id);
 
-//     }
-// }
+    // get the rels for the image id in question
+    foreach ($term_rels as $tr) {
+        if ($tr['file_id'] == $img_id) {
+            array_push($resulting_rels, array($img_id, $tr['term_id']));
+        }
+    }
+
+    // check for the duplicate
+    if (count($resulting_rels) > 0) {
+        foreach ($resulting_rels as $rel) {
+            if ($rel[0] == $term_rel[0] && $rel[1] == $term_rel[1]) {
+                $has_term_rel = true;
+                break;
+            }
+        }
+    }
+    return $has_term_rel;
+}
 
 
