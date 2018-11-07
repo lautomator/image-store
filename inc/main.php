@@ -232,4 +232,3 @@ function check_img_has_term($term_rels, $img_id, $term_id) {
     }
     return $has_term_rel;
 }
-
