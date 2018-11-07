@@ -1,5 +1,12 @@
 <?php
 
+function get_all_tag_qs($q) {
+    // Returns all of the tag ids <array>
+    // from the get param pass in <str>.
+    $filtered_query = explode(' ', $q);
+    return $filtered_query;
+}
+
 function get_terms($term_rels, $image_id) {
     // Returns the term ids <array> for a
     // a given image id <int>. Takes in
@@ -225,5 +232,4 @@ function check_img_has_term($term_rels, $img_id, $term_id) {
     }
     return $has_term_rel;
 }
-
 
