@@ -10,8 +10,8 @@ $db_config = array(
     'db' => $conf['db']
 );
 
-//$cache = rand(); // dev only
-$cache = '2018-11-08';
+// $cache = rand(); // dev only
+$cache = '2018-11-08-a';
 $max_records_per_page = 25;
 $default_page = 1;
 

@@ -82,4 +82,9 @@ input { margin: 4px 4px 4px 0; }
         margin-left: -25px;
         width: 100%;
     }
+
+    .ist-review-img {
+        max-height: 450px;
+        width: auto;
+    }
 }

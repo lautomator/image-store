@@ -5,7 +5,7 @@
                 <tbody>
                     <tr>
                         <td rowspan="4"  class="ist-cell-40">
-                            <img class="ist-review-img" src="<?php echo $img_path; ?>">
+                            <a href="<?php echo $img_path; ?>" target="_blank"><img class="ist-review-img" src="<?php echo $img_path; ?>"></a>
                         </td>
                         <td class="ist-cell-60">
                             <code>id: </code><?php echo $record['file_id']; ?>
