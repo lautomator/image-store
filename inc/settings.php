@@ -1,15 +1,17 @@
 <?php
 
+require_once('config.php');
+
 // settings for localhost
 $db_config = array(
-    'host' => '127.0.0.1:3306',
-    'user' => 'root',
-    'password' => 'root',
-    'db' => 'image_store'
+    'host' => $conf['host'],
+    'user' => $conf['user'],
+    'password' => $conf['pw'],
+    'db' => $conf['db']
 );
 
-$cache = rand(); // dev only
-// $cache = '2018-XX-XX';
+//$cache = rand(); // dev only
+$cache = '2018-11-08';
 $max_records_per_page = 25;
 $default_page = 1;
 
