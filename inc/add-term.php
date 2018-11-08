@@ -5,7 +5,7 @@ require_once('main.php');
 require_once('data.php');
 
 if (isset($_POST)) {
-    $user_in = htmlspecialchars($_POST['addTag']);
+    $user_in = htmlspecialchars(trim($_POST['addTag']));
     $img_id = $_POST['imgId'];
     $can_add_term = false;
     $term_rel_updated = false;
