@@ -232,3 +232,73 @@ function check_img_has_term($term_rels, $img_id, $term_id) {
     }
     return $has_term_rel;
 }
+
+function get_img_ids($data) {
+    // Returns the page ids <str>
+    // for a given set of filtered
+    // and paginated records. Takes
+    // in the page data from the filter
+    // and pagination procedures <array>.
+
+    $ids = array();
+
+    foreach ($data as $d) {
+        if (!empty($d)) {
+            array_push($ids, $d['file_id']);
+        }
+    }
+
+    $ids = implode(',', $ids);
+    return $ids;
+}
+
+function properties_navi($ids, $curr_id) {
+    // Returns the next and previous
+    // ids for pagination on the
+    // properties page <array>.
+    // Takes in the current ids
+    // set <str> and the current
+    // id <int>.
+
+    $navi = array(
+        'prev' => null,
+        'next' => null
+    );
+    $ids_expl = explode(',', $ids);
+    $index = 0;
+    $curr_pos = 0;
+
+    // weed out a page with only one entry
+    if (count($ids_expl) == 1) {
+        $navi['prev'] = null;
+        $navi['next'] = null;
+    }
+
+    // find the current position
+    while ($index < count($ids_expl)) {
+        if ($ids_expl[$index] == $id) {
+            $curr_pos = $index;
+            break;
+        }
+        $index += 1;
+    }
+
+    // get the next and previous
+    if ($curr_pos == 0) {
+        // no prev page
+        $navi['prev'] = null;
+        $navi['next'] = $ids_expl[$curr_pos + 1];
+    } else if ($curr_pos > 0 && $curr_pos == (count($ids_expl) - 1)) {
+        // no next page
+        $navi['prev'] = $ids_expl[$curr_pos - 1];
+        $navi['next'] = null;
+    } else {
+        // both next and prev
+        $navi['prev'] = $ids_expl[$curr_pos - 1];
+        $navi['next'] = $ids_expl[$curr_pos + 1];
+    }
+
+    return $navi;
+}
+
+

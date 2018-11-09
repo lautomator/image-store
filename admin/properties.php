@@ -1,12 +1,14 @@
 <?php
 
 $page = 'properties';
+$tracking = array();
 $render = false;
 
 require_once('../inc/loader.php');
 require_once('../inc/header.php');
 require_once('../inc/nav.php');
 
+// GET
 if (isset($_GET['img_id'])) {
     $img_id = $_GET['img_id'];
     $record = get_records($result['img_data'], array($img_id))[0];
@@ -21,6 +23,16 @@ if (isset($_GET['img_id'])) {
         // get any error reportage
         if (isset($_GET['err'])) {
              $err_msg = $_GET['err'];
+        }
+
+        // get id tracking info
+        if (isset($_GET['setIDs'])) {
+            $set_ids = $_GET['setIDs'];
+            $tracking = properties_navi($set_ids, $img_id);
+        }
+
+        if (isset($_GET['p'])) {
+            $page_no = $_GET['p'];
         }
 
         $render = true;

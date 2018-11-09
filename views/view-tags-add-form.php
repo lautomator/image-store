@@ -1,7 +1,7 @@
 <div class="container">
     <?php if ($render): ?>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <form method="post" action="../inc/add-term.php" class="form-inline">
                     <div class="form-group">
                         <input type="text" class="form-control" name="addTag" id="addTag" placeholder="Tag (16 chars max)" value="" maxlength="16" required>
@@ -14,7 +14,8 @@
                     <p class="text-danger"><?php echo $err_msg; ?></p>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6"><?php require_once('view-add-cart.php'); ?></div>
+            <div class="col-md-4"><?php require_once('view-properties-page-nav.php'); ?></div>
+            <div class="col-md-3"><?php require_once('view-add-cart.php'); ?></div>
         </div>
     <?php endif; ?>
 </div>

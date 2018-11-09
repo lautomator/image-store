@@ -1,5 +1,7 @@
 <?php
 
+$set_ids = '';
+
 if (isset ($_GET['t'])) {
     // process a tag query
     $t = get_all_tag_qs($_GET['t']);
@@ -21,3 +23,7 @@ if (isset ($_GET['p'])) {
 $page_info = paginate($records, $current_page, $max_records_per_page);
 $page_items = $page_info['pages'];
 $pagination_code = $page_info['pagination_code'];
+
+if (count($page_items) > 0) {
+    $set_ids = get_img_ids($page_items);
+}

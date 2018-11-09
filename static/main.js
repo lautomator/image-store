@@ -53,7 +53,6 @@ var imageStoreApp = {
         var index = 0;
         while (index < target.tagSuggestion.length) {
             target.tagSuggestion[index].addEventListener("click", function(item) {
-                console.log(item.target.innerText);
                 // populate the form field with the clicked suggestion
                 imageStoreApp.targets.inputTag.value = item.target.innerText;
             });
