@@ -8,5 +8,6 @@ $urls = array(
     'register' => $admin_dir . 'register.php',
     'tags' => $admin_dir . 'tags.php',
     'search' => $admin_dir . 'search.php',
-    'properties' => $admin_dir . 'properties.php'
+    'properties' => $admin_dir . 'properties.php',
+    'cart' => $admin_dir . 'cart.php'
 );

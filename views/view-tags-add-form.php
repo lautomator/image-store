@@ -14,7 +14,7 @@
                     <p class="text-danger"><?php echo $err_msg; ?></p>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6">&nbsp;</div>
+            <div class="col-md-6"><?php require_once('view-add-cart.php'); ?></div>
         </div>
     <?php endif; ?>
 </div>

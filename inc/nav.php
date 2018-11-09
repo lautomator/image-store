@@ -18,6 +18,9 @@
                 <li class="nav-item <?php echo ($page == 'search' ? 'active' : ''); ?>">
                     <a class="nav-link" href="<?php echo $urls['search']; ?>">Search<?php echo ($page == 'search' ? '<span class="sr-only">(current)</span>' : ''); ?></a>
                 </li>
+                <li class="nav-item <?php echo ($page == 'cart' ? 'active' : ''); ?>">
+                    <a class="nav-link" href="<?php echo $urls['cart']; ?>">Cart<?php echo ($page == 'cart' ? '<span class="sr-only">(current)</span>' : ''); ?></a>
+                </li>
             </ul>
         </div>
     </div>
