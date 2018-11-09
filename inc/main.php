@@ -261,8 +261,8 @@ function properties_navi($ids, $curr_id) {
     // id <int>.
 
     $navi = array(
-        'prev' => null,
-        'next' => null
+        'prev' => -1,
+        'next' => -1
     );
     $ids_expl = explode(',', $ids);
     $index = 0;
@@ -270,34 +270,33 @@ function properties_navi($ids, $curr_id) {
 
     // weed out a page with only one entry
     if (count($ids_expl) == 1) {
-        $navi['prev'] = null;
-        $navi['next'] = null;
-    }
-
-    // find the current position
-    while ($index < count($ids_expl)) {
-        if ($ids_expl[$index] == $id) {
-            $curr_pos = $index;
-            break;
-        }
-        $index += 1;
-    }
-
-    // get the next and previous
-    if ($curr_pos == 0) {
-        // no prev page
-        $navi['prev'] = null;
-        $navi['next'] = $ids_expl[$curr_pos + 1];
-    } else if ($curr_pos > 0 && $curr_pos == (count($ids_expl) - 1)) {
-        // no next page
-        $navi['prev'] = $ids_expl[$curr_pos - 1];
-        $navi['next'] = null;
+        $navi['prev'] = -1;
+        $navi['next'] = -1;
     } else {
-        // both next and prev
-        $navi['prev'] = $ids_expl[$curr_pos - 1];
-        $navi['next'] = $ids_expl[$curr_pos + 1];
-    }
+        // find the current position
+        while ($index < count($ids_expl)) {
+            if ($ids_expl[$index] == $index) {
+                $curr_pos = $index;
+                break;
+            }
+            $index += 1;
+        }
 
+        // get the next and previous
+        if ($curr_pos == 0) {
+            // no prev page
+            $navi['prev'] = -1;
+            $navi['next'] = $ids_expl[$curr_pos + 1];
+        } else if ($curr_pos > 0 && $curr_pos == (count($ids_expl) - 1)) {
+            // no next page
+            $navi['prev'] = $ids_expl[$curr_pos - 1];
+            $navi['next'] = -1;
+        } else {
+            // both next and prev
+            $navi['prev'] = $ids_expl[$curr_pos - 1];
+            $navi['next'] = $ids_expl[$curr_pos + 1];
+        }
+    }
     return $navi;
 }
 

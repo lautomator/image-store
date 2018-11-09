@@ -1,7 +1,8 @@
 <?php
 
 $page = 'properties';
-$tracking = array();
+$tracking = null;
+$set_ids = null;
 $render = false;
 
 require_once('../inc/loader.php');
