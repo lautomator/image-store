@@ -300,4 +300,30 @@ function properties_navi($ids, $curr_id) {
     return $navi;
 }
 
+function sort_tags($terms, $term_ids) {
+    // Returns tagids <array> sorted
+    // by their slug name (a-z). Takes
+    // in the terms <array> and term
+    // ids <array> for the given set.
+    $sorted_ids = array();
+    $slugs = array();
+
+    // get the slugs
+    foreach ($terms as $t) {
+        if (in_array($t['term_id'],$term_ids)) {
+            array_push($slugs, $t['term_slug']);
+        }
+    }
+
+    // sort by the slugs
+    asort($slugs);
+
+    // get the ids again
+    foreach ($slugs as $s) {
+        array_push($sorted_ids, get_term_id($terms, $s));
+    }
+
+    return $sorted_ids;
+}
+
 
