@@ -326,4 +326,39 @@ function sort_tags($terms, $term_ids) {
     return $sorted_ids;
 }
 
+function q_search($q_term_ids, $term_rels) {
+    // Returns all of the image ids <array>
+    // that contain ALL of the ids in
+    // $q_term_ids <array>. Takes in the
+    // term relationships <array>.
+    $result = array();
+    $req_hits = count($q_term_ids);
+    $hits = 0;
+    $current_t_id = null;
+    $possible_id = '';
+    $index = 0;
+
+    while ($index < $req_hits) {
+        $current_t_id = $q_term_ids[$index];
+
+        foreach ($term_rels as $t) {
+            if ($current_t_id == $t['term_id']) {
+                $hits += 1;
+                $possible_id = $t['file_id'];
+                array_push($result, $possible_id);
+            }
+
+            // if ($hits == $req_hits) {
+
+            //     break;
+            // }
+        }
+        $possible_id = '';
+        $hits = 0;
+        $index += 1;
+    }
+
+    return $result;
+}
+
 

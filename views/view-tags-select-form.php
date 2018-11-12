@@ -13,5 +13,4 @@
             <input class="btn-success" type="submit" name="qTags" value="Search">
         </div>
     </form>
-
 <?php endif; ?>
