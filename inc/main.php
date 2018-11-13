@@ -332,33 +332,37 @@ function q_search($q_term_ids, $term_rels) {
     // $q_term_ids <array>. Takes in the
     // term relationships <array>.
     $result = array();
+    $query_results = array();
     $req_hits = count($q_term_ids);
+    $current_id = null;
     $hits = 0;
-    $current_t_id = null;
-    $possible_id = '';
     $index = 0;
 
-    while ($index < $req_hits) {
-        $current_t_id = $q_term_ids[$index];
+    foreach ($term_rels as $rel) {
+        if (in_array($rel['term_id'], $q_term_ids)) {
+            array_push($result, $rel['file_id']);
+        }
+    }
 
-        foreach ($term_rels as $t) {
-            if ($current_t_id == $t['term_id']) {
+    asort($result);
+
+    while ($index < count($result)) {
+        $current_id = $result[$index];
+
+        foreach ($result as $r) {
+            if ($r == $current_id) {
                 $hits += 1;
-                $possible_id = $t['file_id'];
-                array_push($result, $possible_id);
             }
 
-            // if ($hits == $req_hits) {
-
-            //     break;
-            // }
+            if ($hits == $req_hits) {
+                array_push($query_results, $current_id);
+                break;
+            }
         }
-        $possible_id = '';
         $hits = 0;
         $index += 1;
     }
-
-    return $result;
+    return ($query_results);
 }
 
 

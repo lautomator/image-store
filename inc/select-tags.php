@@ -1,11 +1,14 @@
 <?php
 
-require_once('data.php');
+require_once('urls.php');
 require_once('main.php');
+require_once('data.php');
 
 $q = '?id=';
+$q_str = '';
 $q_ids = array();
-$result = array();
+$queried = array();
+$redirect = 'Location: ../' . $urls['home'];
 
 
 // get the ids from the form
@@ -17,11 +20,20 @@ foreach ($_GET as $key => $val) {
 }
 
 // get the record ids that match the search
-$result = q_search($q_ids, $result['term_rels']);
+$queried = q_search($q_ids, $result['term_rels']);
 
-// add that to the query string an redirect
-// $q = trim($q, '+');
+if (count($queried) > 0) {
+    // add to the query string
+    foreach ($queried as $img_id) {
+        $q_str .= $img_id . '+';
+    }
 
-// header('Location: ../index.php' . $q);
+    $q_str = trim($q_str, '+');
+    $q .= $q_str;
+} else {
+    $q .= 'null';
+}
 
-print_r($result);
+$redirect .= $q;
+
+header($redirect);
