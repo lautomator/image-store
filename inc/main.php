@@ -1,6 +1,6 @@
 <?php
 
-function get_all_tag_qs($q) {
+function get_all_qs($q) {
     // Returns all of the tag ids <array>
     // from the get param pass in <str>.
     $filtered_query = explode(' ', $q);

@@ -1,13 +1,14 @@
 <?php
 
 $set_ids = '';
+$item_terms = array();
 
+// process GET params
 if (isset ($_GET['t'])) {
     // process a tag query
-    $t = get_all_tag_qs($_GET['t']);
+    $t = get_all_qs($_GET['t']);
     $record_ids = filter_records($result['term_rels'], $t);
     $records = get_records($result['img_data'], $record_ids);
-    $item_terms = array();
 } else {
     // get all of the records
     $records = $result['img_data'];
@@ -18,6 +19,16 @@ if (isset ($_GET['p'])) {
     $current_page = $_GET['p'];
 } else {
     $current_page = $default_page;
+}
+
+if (isset($_GET['id'])) {
+    // process an image id query
+    if ($_GET['id'] == 'null') {
+        $no_records_warn = 'There are no results for that search.';
+    } else {
+        $img_ids = get_all_qs($_GET['id']);
+        $records = get_records($result['img_data'], $img_ids);
+    }
 }
 
 $page_info = paginate($records, $current_page, $max_records_per_page);
