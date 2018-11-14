@@ -17,3 +17,6 @@ $default_page = 1;
 
 // pages that use the main javascript
 $script_pages = array('properties');
+
+// acceptable file extension
+$extensions_in = array('.jpg', '.jpeg', '.tif', '.tiff', '.gif', '.png');

@@ -64,7 +64,7 @@ class IsUpload {
                 # determine if a successful upload has occured
                 if ($success) {
                     $message = $filename . ' uploaded successfully';
-                    $this->_file_info[] = array('name' => $filename, 'path' => $this->_destination);
+                    $this->_file_info[] = $filename;
                     if ($this->_renamed) {
                         $message .= " and renamed $name";
                     }

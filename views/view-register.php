@@ -22,6 +22,9 @@
                 <?php endforeach; ?>
             </ul>
             <?php endif; ?>
+            <?php if (isset($err_msg)): ?>
+                <p class="text-danger"><?php echo $err_msg; ?></p>
+            <?php endif; ?>
         </div>
     </div>
 </div>

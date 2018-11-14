@@ -365,4 +365,33 @@ function q_search($q_term_ids, $term_rels) {
     return ($query_results);
 }
 
+function get_file_parts($fin, $exts) {
+    // Returns the file name <str>
+    // without the extension and the
+    // extension <str>. Takes in the
+    // full file in <str> and the list
+    // of acceptable extensions <array>.
+    $result = array();
+    $fname = '';
+    $ext = '';
+    $pat = '';
+    $len = null;
+
+    foreach ($exts as $x) {
+        if (strpos($fin, $x) > -1) {
+            $len = strpos($fin, $x);
+            $fname = substr($fin, 0, $len);
+            $ext = substr($fin, $len);
+            $ext = str_replace('.', '', $ext);
+            break;
+        }
+    }
+    $result['name'] = $fname;
+    $result['ext'] = $ext;
+    return $result;
+}
+
+
+
+
 
