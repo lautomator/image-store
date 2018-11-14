@@ -7,6 +7,7 @@ class IsUpload {
     protected $_destination;
     protected $_max = 51200;
     protected $_messages = array();
+    protected $_file_info = array();
     protected $_permitted = array(
         'image/gif',
         'image/jpeg',
@@ -62,6 +63,7 @@ class IsUpload {
                 # determine if a successful upload has occured
                 if ($success) {
                     $message = $filename . ' uploaded successfully';
+                    $this->_file_info[] = array('name' => $filename, 'path' => $this->_destination);
                     if ($this->_renamed) {
                         $message .= " and renamed $name";
                     }
@@ -76,6 +78,11 @@ class IsUpload {
     # return $_messages
     public function getMessages() {
         return $this->_messages;
+    }
+
+    # return $_file_info
+    public function getFileInfo() {
+        return $this->_file_info;
     }
 
     # check for errors

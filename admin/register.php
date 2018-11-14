@@ -18,11 +18,9 @@ if (isset($_POST['upload'])) {
     try {
         $upload = new IsUpload($destination);
         $upload->setMaxSize($max);
-        // $upload->addPermittedTypes(array('application/pdf', 'text/plain'));
-        # you can also set a permitted type if you just want one file type
-        # $upload->setPermittedTypes('text/plain');
         $upload->move(true);
         $upload_result = $upload->getMessages();
+        $upload_file_info = $upload->getFileInfo();
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -30,3 +28,10 @@ if (isset($_POST['upload'])) {
 
 require('../views/view-register.php');
 require_once('../inc/footer.php');
+
+// testing
+if (isset($upload_file_info)) {
+    echo '<pre>';
+    print_r($upload_file_info);
+    echo '</pre>';
+}
