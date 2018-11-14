@@ -21,6 +21,7 @@ if (isset($_POST['upload'])) {
         $upload->move(true);
         $upload_result = $upload->getMessages();
         $upload_file_info = $upload->getFileInfo();
+        $upload_status = $upload->getUploadStatus();
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -35,3 +36,5 @@ if (isset($upload_file_info)) {
     print_r($upload_file_info);
     echo '</pre>';
 }
+
+echo '<br><br>' . $upload_status;

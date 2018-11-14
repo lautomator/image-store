@@ -15,6 +15,7 @@ class IsUpload {
         'image/png'
     );
     protected $_renamed = false;
+    protected $_status = -1;
 
     # constructor for the class
     public function __construct($path) {
@@ -68,9 +69,11 @@ class IsUpload {
                         $message .= " and renamed $name";
                     }
                     $this->_messages[] = $message;
+                    $this->_status = 0;
                 }
             } else {
                 $this->_messages[] = 'Could not upload ' . $filename;
+                $this->_status = -1;
             }
         }
     }
@@ -83,6 +86,11 @@ class IsUpload {
     # return $_file_info
     public function getFileInfo() {
         return $this->_file_info;
+    }
+
+    # return $_status
+    public function getUploadStatus() {
+        return $this->_status;
     }
 
     # check for errors
