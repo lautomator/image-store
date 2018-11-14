@@ -10,9 +10,9 @@ $db_config = array(
     'db' => $conf['db']
 );
 
-$cache = rand(); // dev only
-// $cache = '2018-11-08-a';
-$max_records_per_page = 5;
+// $cache = rand(); // dev only
+$cache = '2018-11-14';
+$max_records_per_page = 50;
 $default_page = 1;
 
 // pages that use the main javascript
