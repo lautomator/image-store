@@ -3,6 +3,7 @@
 $home = 'http://dev.local/image-store/';
 $static_dir = $home . 'static/';
 $admin_dir = $home . 'admin/';
+$uploads_dir = $home . 'uploads/';
 
 $urls = array(
     'home' => 'index.php',

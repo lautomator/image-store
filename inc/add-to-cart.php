@@ -1,7 +1,17 @@
 <?php
 
-// if (isset($_POST['cartImgId'])) {
-//     setcookie('imgId', null, time(), $_POST['cartImgId']);
-//     header('Location: ../admin/cart.php');
+require_once('urls.php');
 
-// }
+if (isset($_POST['cartImgId'])) {
+    $c_name = 'cart_images';
+    $c_val = $_POST['cartImgId'];
+
+    // check to see if the cookie is already set
+    if (isset($_COOKIE[$c_name])) {
+        // add items to it
+        $c_val .= ':' . $_COOKIE[$c_name];
+    }
+
+    setcookie($c_name, $c_val, time() + (86400), "/");
+    header('Location: ' . $urls['cart']);
+}

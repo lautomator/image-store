@@ -4,6 +4,7 @@ $page = 'properties';
 $tracking = null;
 $set_ids = null;
 $render = false;
+$in_cart = false;
 
 require_once('../inc/loader.php');
 require_once('../inc/header.php');
@@ -40,6 +41,15 @@ if (isset($_GET['img_id'])) {
     }
 } else {
     $msg = 'There is no record for that entry.';
+}
+
+// cookie
+if (isset($_COOKIE['cart_images'])) {
+    // check to see if this image is in the the cookie value
+    if (check_cookie($img_id, $_COOKIE['cart_images'])) {
+        // The image has already been added to the cart
+        $in_cart = true;
+    }
 }
 
 require('../views/view-properties.php');

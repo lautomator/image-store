@@ -420,5 +420,24 @@ function check_for_dup_file_names($file_name, $image_names) {
     return $is_duplicate;
 }
 
+function check_cookie($id, $c_val) {
+    // Returns true if the img id is
+    // already in the cookie <bool>.
+    // Takes in the image id <str> and
+    // the cookie value <str>.
+    $is_in_cookie = false;
+    $cook_data = explode(':', $c_val);
 
+    if (in_array($id, $cook_data)) {
+        $is_in_cookie = true;
+    }
+    return $is_in_cookie;
+}
+
+function clear_cookie($c_name) {
+    // Clears a cookie <str>.
+    unset($_COOKIE[$c_name]);
+    setcookie($_COOKIE[$c_name], null, -1, '/');
+    return true;
+}
 
