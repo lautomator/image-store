@@ -338,14 +338,17 @@ function q_search($q_term_ids, $term_rels) {
     $hits = 0;
     $index = 0;
 
+    // get all of the file ids that have matching terms
     foreach ($term_rels as $rel) {
         if (in_array($rel['term_id'], $q_term_ids)) {
             array_push($result, $rel['file_id']);
         }
     }
 
+    // sort the result
     asort($result);
 
+    // count the hits for each id
     while ($index < count($result)) {
         $current_id = $result[$index];
 
@@ -355,13 +358,16 @@ function q_search($q_term_ids, $term_rels) {
             }
 
             if ($hits == $req_hits) {
-                array_push($query_results, $current_id);
-                break;
+                if (! in_array($current_id, $query_results)) {
+                    array_push($query_results, $current_id);
+                    break;
+                }
             }
         }
         $hits = 0;
         $index += 1;
     }
+
     return ($query_results);
 }
 

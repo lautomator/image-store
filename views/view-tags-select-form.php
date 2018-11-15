@@ -1,5 +1,5 @@
 <?php if (! empty($result['terms'])): ?>
-    <form method="get" action="../inc/select-tags.php" class="form-inline">
+    <form method="post" action="<?php echo $home; ?>" class="form-inline">
         <div class="row">
             <?php foreach ($result['terms'] as $terms): ?>
                 <div class="col-md-3">

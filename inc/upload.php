@@ -7,6 +7,7 @@ $max = 5000000;
 $ul_file_name = '';
 $ul_file_ext = '';
 $ul_file_path = '';
+$col_vals = '';
 
 # move the file out of its temp location to another location
 if (isset($_POST['upload'])) {
@@ -39,20 +40,21 @@ if (isset($upload_file_info)) {
             $ul_file_name = $ul_file_parts['name'];
             $ul_file_ext = $ul_file_parts['ext'];
 
-            require_once('connect.php');
+            $col_vals .= '(' . $ul_file_path . ', ' . $ul_file_name . ', ' . $ul_file_ext . '),';
+        }
+        $col_vals = trim($col_vals, ',');
 
-            if ($success) {
-                $sql = 'INSERT INTO images (file_path, file_name, file_ext) VALUES ' . "('{$ul_file_path}', '{$ul_file_name}', '{$ul_file_ext}')";
+        require_once('connect.php');
 
-                if (!mysqli_query($link, $sql)) {
-                    $err_msg = 'There was a problem writing to the database.';
-                    break;
-                }
-                mysqli_close($link);
-            } else {
-                $err_msg = 'There was a problem connecting to the databse.';
-                break;
+        if ($success) {
+            $sql = 'INSERT INTO images (file_path, file_name, file_ext) VALUES ' . $col_vals;
+
+            if (!mysqli_query($link, $sql)) {
+                $err_msg = 'There was a problem writing to the database.';
             }
+            mysqli_close($link);
+        } else {
+            $err_msg = 'There was a problem connecting to the databse.';
         }
     }
 }

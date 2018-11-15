@@ -31,6 +31,13 @@ if (isset($_GET['id'])) {
     }
 }
 
+if (isset($_POST)) {
+    require_once('inc/select-tags.php');
+    if (isset($q)) {
+        $records = get_records($result['img_data'], $q);
+    }
+}
+
 $page_info = paginate($records, $current_page, $max_records_per_page);
 $page_items = $page_info['pages'];
 $pagination_code = $page_info['pagination_code'];
