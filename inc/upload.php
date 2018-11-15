@@ -40,7 +40,7 @@ if (isset($upload_file_info)) {
             $ul_file_name = $ul_file_parts['name'];
             $ul_file_ext = $ul_file_parts['ext'];
 
-            $col_vals .= '(' . $ul_file_path . ', ' . $ul_file_name . ', ' . $ul_file_ext . '),';
+            $col_vals .= '(' . '"' . $ul_file_path . '"' . ', ' . '"' . $ul_file_name . '"' . ', ' . '"' . $ul_file_ext . '"' . '),';
         }
         $col_vals = trim($col_vals, ',');
 

@@ -21,20 +21,14 @@ if (isset ($_GET['p'])) {
     $current_page = $default_page;
 }
 
-if (isset($_GET['id'])) {
-    // process an image id query
-    if ($_GET['id'] == 'null') {
-        $no_records_warn = 'There are no results for that search.';
-    } else {
-        $img_ids = get_all_qs($_GET['id']);
-        $records = get_records($result['img_data'], $img_ids);
-    }
-}
-
-if (isset($_POST)) {
+if (isset($_POST['qTags'])) {
     require_once('inc/select-tags.php');
     if (isset($q)) {
-        $records = get_records($result['img_data'], $q);
+        if (count($q) > 0) {
+            $records = get_records($result['img_data'], $q);
+        } else {
+            $no_records_warn = 'There are no results for that search.';
+        }
     }
 }
 

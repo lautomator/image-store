@@ -7,6 +7,11 @@ require_once('data.php');
 $q = array();
 $q_ids = array();
 $queried = array();
+$redirect ='Location: ' . $urls['search'] . '?e=1';
+
+if (count($_POST) == 1) {
+     header($redirect);
+}
 
 // get the ids from the form
 foreach ($_POST as $key => $val) {
