@@ -397,7 +397,28 @@ function get_file_parts($fin, $exts) {
     return $result;
 }
 
+function get_image_names($img_data) {
+    // Returns the names of all of the
+    // images in the database <array>.
+    // Takes in the image data <array>.
+    $image_names = array();
+    foreach ($img_data as $row) {
+        array_push($image_names, $row['file_name']);
+    }
+    return $image_names;
+}
 
+function check_for_dup_file_names($file_name, $image_names) {
+    // Returns true if a duplicate name is
+    // found <bool>. Takes in the file name
+    // <str> and the existing image names <array>.
+    $is_duplicate = false;
+
+    if (in_array($file_name, $image_names)) {
+        $is_duplicate = true;
+    }
+    return $is_duplicate;
+}
 
 
 
