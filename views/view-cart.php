@@ -20,11 +20,26 @@
             </tbody>
         </table>
 
-        <form method="post" action="../inc/clear-cart.php">
-            <div class="form-group">
-                <input class="btn-success" type="submit" name="clearCart" value="Clear Cart">
+        <div class="row">
+            <div class="col-md-3">
+                <form method="post" action="../inc/clear-cart.php">
+                    <div class="form-group">
+                        <input class="btn-default" type="submit" name="clearCart" value="Clear Cart">
+                    </div>
+                </form>
             </div>
-        </form>
+
+            <div class="col-md-9">
+                <form method="post" action="<?php echo $urls['viewer']; ?>">
+                    <div class="form-group">
+                        <?php foreach ($cart_items as $item): ?>
+                            <input type="hidden" name="item-<?php echo $item['file_id']; ?>" value="<?php echo $item['file_id']; ?>">
+                        <?php endforeach; ?>
+                        <input class="btn-success" type="submit" name="viewer" value="View">
+                    </div>
+                </form>
+            </div>
+        </div>
 
     <?php else: ?>
         <p class="text-warning">There are no items in your cart.</p>

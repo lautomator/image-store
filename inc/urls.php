@@ -11,5 +11,6 @@ $urls = array(
     'tags' => $admin_dir . 'tags.php',
     'search' => $admin_dir . 'search.php',
     'properties' => $admin_dir . 'properties.php',
-    'cart' => $admin_dir . 'cart.php'
+    'cart' => $admin_dir . 'cart.php',
+    'viewer' => $admin_dir . 'viewer.php',
 );
