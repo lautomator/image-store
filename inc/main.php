@@ -434,10 +434,3 @@ function check_cookie($id, $c_val) {
     return $is_in_cookie;
 }
 
-function clear_cookie($c_name) {
-    // Clears a cookie <str>.
-    unset($_COOKIE[$c_name]);
-    setcookie($_COOKIE[$c_name], null, -1, '/');
-    return true;
-}
-

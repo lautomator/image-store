@@ -5,13 +5,9 @@ $cart_empty = true;
 
 require_once('../inc/loader.php');
 
-if (isset($_POST['clearCart'])) {
-    clear_cookie('cart_images');
-}
-
-if (isset($_COOKIE['cart_images'])) {
+if (isset($_COOKIE['ci'])) {
     $cart_empty = false;
-    $cook_img_ids = explode(':', $_COOKIE['cart_images']);
+    $cook_img_ids = explode(':', $_COOKIE['ci']);
     $cart_items = get_records($result['img_data'], $cook_img_ids);
 }
 

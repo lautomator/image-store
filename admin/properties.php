@@ -44,9 +44,9 @@ if (isset($_GET['img_id'])) {
 }
 
 // cookie
-if (isset($_COOKIE['cart_images'])) {
+if (isset($_COOKIE['ci'])) {
     // check to see if this image is in the the cookie value
-    if (check_cookie($img_id, $_COOKIE['cart_images'])) {
+    if (check_cookie($img_id, $_COOKIE['ci'])) {
         // The image has already been added to the cart
         $in_cart = true;
     }

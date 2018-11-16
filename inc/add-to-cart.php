@@ -3,7 +3,7 @@
 require_once('urls.php');
 
 if (isset($_POST['cartImgId'])) {
-    $c_name = 'cart_images';
+    $c_name = 'ci';
     $c_val = $_POST['cartImgId'];
 
     // check to see if the cookie is already set

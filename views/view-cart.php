@@ -20,7 +20,7 @@
             </tbody>
         </table>
 
-        <form method="post" action="<?php echo $urls['cart']; ?>">
+        <form method="post" action="../inc/clear-cart.php">
             <div class="form-group">
                 <input class="btn-success" type="submit" name="clearCart" value="Clear Cart">
             </div>
@@ -30,10 +30,4 @@
         <p class="text-warning">There are no items in your cart.</p>
     <?php endif; ?>
 </div>
-
-
-
-
-
-
 
