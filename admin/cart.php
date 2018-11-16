@@ -2,6 +2,7 @@
 
 $page = 'cart';
 $cart_empty = true;
+$cart_full = false;
 
 require_once('../inc/loader.php');
 

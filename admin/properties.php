@@ -5,6 +5,7 @@ $tracking = null;
 $set_ids = null;
 $render = false;
 $in_cart = false;
+$cart_full = false;
 
 require_once('../inc/loader.php');
 require_once('../inc/header.php');
@@ -49,6 +50,12 @@ if (isset($_COOKIE['ci'])) {
     if (check_cookie($img_id, $_COOKIE['ci'])) {
         // The image has already been added to the cart
         $in_cart = true;
+    }
+
+    // check to see if the cart is full
+    $cookie_val = explode(":", $_COOKIE['ci']);
+    if (count($cookie_val) == $cart_size) {
+        $cart_full = true;
     }
 }
 

@@ -1,4 +1,4 @@
-<?php if (! $in_cart): ?>
+<?php if (! $in_cart && ! $cart_full): ?>
     <form method="post" action="../inc/add-to-cart.php">
         <div class="form-group">
             <input name="cartImgId" value=<?php echo $img_id; ?> type="hidden">
