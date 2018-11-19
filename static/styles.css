@@ -51,8 +51,6 @@ input { margin: 4px 4px 4px 0; }
 
 .ist-form-suggestions-panel { display: none; }
 
-.ist-desktop-only { display: none; }
-
 
 /* desktop only */
 @media screen and (min-width: 780px) {
@@ -89,6 +87,4 @@ input { margin: 4px 4px 4px 0; }
         max-height: 450px;
         width: auto;
     }
-
-    .ist-desktop-only { display: inline-block; }
 }

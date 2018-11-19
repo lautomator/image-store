@@ -1,5 +1,10 @@
 <?php
 
+if (isset($_SESSION['user'])) {
+    session_unset();
+    session_destroy();
+}
+
 $page = 'login';
 
 require_once('../inc/urls.php');

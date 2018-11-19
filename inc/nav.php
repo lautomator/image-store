@@ -22,8 +22,7 @@
                     <a class="nav-link" href="<?php echo $urls['cart']; ?>">Cart<?php echo ($page == 'cart' ? '<span class="sr-only">(current)</span>' : ''); ?></a>
                 </li>
                 <?php if (isset($_SESSION['user'])): ?>
-                    <li class="nav-item"><a class="nav-link"><span class="ist-desktop-only">|&emsp;</span>Hello, <?php echo $_SESSION['user']; ?></a>
-                    </li>
+                    <a class="nav-link" href="<?php echo $urls['home'] . '?logout=true'; ?>">Logout</a>
                 <?php endif; ?>
             </ul>
         </div>

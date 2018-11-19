@@ -13,4 +13,5 @@ $urls = array(
     'properties' => $admin_dir . 'properties.php',
     'cart' => $admin_dir . 'cart.php',
     'viewer' => $admin_dir . 'viewer.php',
+    'logout' => $admin_dir . 'logout.php'
 );

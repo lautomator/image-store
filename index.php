@@ -8,4 +8,3 @@ require_once('inc/nav.php');
 require_once('admin/home.php');
 require('views/view-home.php');
 require_once('inc/footer.php');
-
