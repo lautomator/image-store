@@ -4,6 +4,7 @@ $page = 'viewer';
 $all_cart_img_ids = array();
 $all_cart_records = array();
 
+require_once('../inc/session.php');
 require_once('../inc/loader.php');
 require_once('../inc/header.php');
 require_once('../inc/nav.php');

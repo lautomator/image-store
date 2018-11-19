@@ -7,6 +7,7 @@ $render = false;
 $in_cart = false;
 $cart_full = false;
 
+require_once('../inc/session.php');
 require_once('../inc/loader.php');
 require_once('../inc/header.php');
 require_once('../inc/nav.php');
