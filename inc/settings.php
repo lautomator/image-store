@@ -12,7 +12,7 @@ $db_config = array(
 
 $cache = rand(); // dev only
 // $cache = '2018-11-14';
-$max_records_per_page = 5;
+$max_records_per_page = 25;
 $default_page = 1;
 
 // pages that use the main javascript
