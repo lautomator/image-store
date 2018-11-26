@@ -19,6 +19,14 @@ if (isset($_POST)) {
 
     // get the full records from the ids
     $all_cart_records = get_records($result['img_data'], $all_cart_img_ids);
+    $cart_grid = ceil(12 / $cart_size);
+
+    if ($cart_size <= 6) {
+        $cart_grid = ceil(12 / $cart_size);
+    } else {
+        // cart size > 6
+        $cart_grid = 2;
+    }
 }
 
 require('../views/view-viewer.php');
