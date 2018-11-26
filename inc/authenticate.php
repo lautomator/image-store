@@ -91,7 +91,18 @@ if ($un_entered && $pw_entered) {
 
             session_start();
             $_SESSION['user'] = $name;
-            header($redirect);
+
+            // reset login attempts
+            setcookie('login_attempts', null, time() -1, '/');
+        }
+    } else {
+        if (isset($_COOKIE['login_attempts'])) {
+            $login_attempts = $_COOKIE['login_attempts'];
+            $login_attempts += 1;
+            setcookie('login_attempts', $login_attempts, time() + (86400), "/");
+            $redirect = 'Location: ../admin/login.php?e=1';
         }
     }
+
+    header($redirect);
 }

@@ -23,3 +23,6 @@ $extensions_in = array('.jpg', '.jpeg', '.tif', '.tiff', '.gif', '.png');
 
 // cart size
 $cart_size = 3;
+
+// login attempts
+$max_login_attempts = 3;
