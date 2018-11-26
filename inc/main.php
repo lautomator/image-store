@@ -434,3 +434,29 @@ function check_cookie($id, $c_val) {
     return $is_in_cookie;
 }
 
+function sort_terms($terms, $sortby) {
+    // Returns all of the term objects <array>
+    // sorted by the desired field <str>.
+    // Takes in the terms <array> and sort
+    // order <str>.
+    $all_terms = array();
+    $slugs = array();
+
+    // sort the slugs
+    foreach ($terms as $term) {
+        array_push($slugs, $term[$sortby]);
+    }
+    asort($slugs);
+
+    // sort the terms by the slugs
+    foreach ($slugs as $s) {
+        foreach ($terms as $t) {
+            if ($t[$sortby] == $s) {
+                array_push($all_terms, $t);
+                break;
+            }
+        }
+    }
+    return $all_terms;
+}
+

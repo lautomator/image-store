@@ -13,4 +13,6 @@
             <input class="btn-success" type="submit" name="qTags" value="Search">
         </div>
     </form>
+<?php else: ?>
+    <p class="text-warning">There are no terms to view.</p>
 <?php endif; ?>
