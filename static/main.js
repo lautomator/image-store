@@ -1,5 +1,5 @@
 var imageStoreApp = {
-    "targets": [],
+    "targets": {},
     "currentTags": [],
     tagPrefill: function (tags, uInput) {
         "use strict";
@@ -58,5 +58,12 @@ var imageStoreApp = {
             });
             index += 1;
         }
+    },
+    pageNoListener: function (target) {
+        console.log(target);
+        // listen for change in page number input
+        target.addEventListener("click", function(item) {
+            console.log(item);
+        });
     }
 };

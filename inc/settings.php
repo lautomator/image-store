@@ -12,17 +12,17 @@ $db_config = array(
 
 $cache = rand(); // dev only
 // $cache = '2018-11-14';
-$max_records_per_page = 5;
+$max_records_per_page = 25;
 $default_page = 1;
 
 // pages that use the main javascript
-$script_pages = array('properties');
+$script_pages = array('home', 'properties');
 
 // acceptable file extension
 $extensions_in = array('.jpg', '.jpeg', '.tif', '.tiff', '.gif', '.png');
 
 // cart size
-$cart_size = 3;
+$cart_size = 4;
 
 // login attempts
 $max_login_attempts = 3;

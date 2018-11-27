@@ -3,6 +3,7 @@
 $set_ids = '';
 $item_terms = array();
 
+
 // process GET params
 if (isset ($_GET['t'])) {
     // process a tag query

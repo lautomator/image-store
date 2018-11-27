@@ -8,14 +8,23 @@
             <script>
                 // tags and targets
                 imageStoreApp.currentTags = "<?php echo $tag_names; ?>".split(",").sort();
-                imageStoreApp.targets = {
-                    "inputTag": document.getElementById("addTag"),
-                    "formSuggestions": document.getElementsByClassName("ist-form-suggestions"),
-                    "formSuggestionsPanel": document.getElementsByClassName("ist-form-suggestions-panel"),
-                    "tagSuggestion": document.getElementsByClassName("ist-tag-suggestion")
-                };
+                imageStoreApp.targets["inputTag"] = document.getElementById("addTag");
+                imageStoreApp.targets["formSuggestions"] = document.getElementsByClassName("ist-form-suggestions");
+                imageStoreApp.targets["formSuggestionsPanel"] = document.getElementsByClassName("ist-form-suggestions-panel");
+                imageStoreApp.targets["tagSuggestion"] = document.getElementsByClassName("ist-tag-suggestion");
+
                 // listen for input
                 imageStoreApp.inputListener(imageStoreApp.targets);
+            </script>
+        <?php endif; ?>
+
+        <!-- home page -->
+        <?php if ($page == 'home'): ?>
+            <script>
+                // targets
+                imageStoreApp.targets["pageNo"] = document.getElementById("pageNo");
+                // listen for page changes
+                imageStoreApp.pageNoListener(imageStoreApp.targets);
             </script>
         <?php endif; ?>
     <?php endif; ?>
