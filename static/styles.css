@@ -97,4 +97,9 @@ input { margin: 4px 4px 4px 0; }
         max-height: 450px;
         width: auto;
     }
+
+    .ist-cart-bg-img {
+        height: 500px;
+        width: 100%;
+    }
 }

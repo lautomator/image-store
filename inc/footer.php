@@ -31,6 +31,23 @@
                 <?php endif; ?>
             <?php endif; ?>
         <?php endif; ?>
+
+
+        <!-- home page -->
+        <?php if ($page == 'viewer'): ?>
+            <script>
+                var index = 0;
+                var target = document.getElementsByClassName("ist-cart-bg-img");
+                while (index < target.length) {
+                    target[index].addEventListener("click", function(item) {
+                        console.log(item);
+                    }, false);
+                    index += 1;
+                }
+
+
+            </script>
+        <?php endif; ?>
     <?php endif; ?>
 </body>
 </html>
