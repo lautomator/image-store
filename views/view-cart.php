@@ -29,7 +29,7 @@
                 </form>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <form method="post" action="<?php echo $urls['viewer']; ?>">
                     <div class="form-group">
                         <?php foreach ($cart_items as $item): ?>
@@ -38,6 +38,10 @@
                         <input class="btn-success" type="submit" name="viewer" value="View">
                     </div>
                 </form>
+            </div>
+
+            <div class="col-md-3">
+                <?php require('view-properties-page-nav.php'); ?>
             </div>
         </div>
 
