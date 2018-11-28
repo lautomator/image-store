@@ -59,11 +59,19 @@ var imageStoreApp = {
             index += 1;
         }
     },
-    pageNoListener: function (target) {
-        console.log(target);
+    processPageNoInput: function (inputVal, maxPages, destinationUrl) {
+        "use strict";
+        // got to the selected page
+        if (inputVal <= maxPages) {
+            window.location.href = destinationUrl + "?p=" + inputVal;
+        }
+    },
+    pageNoListener: function (target, maxPages, destinationUrl) {
         // listen for change in page number input
-        target.addEventListener("click", function(item) {
-            console.log(item);
+        target.pageNo.addEventListener("keypress", function(item) {
+            if (item.key === "Enter" || item.keyCode === "13") {
+                imageStoreApp.processPageNoInput(target.pageNo.value, maxPages, destinationUrl);
+            }
         });
     }
 };

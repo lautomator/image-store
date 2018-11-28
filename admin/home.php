@@ -3,7 +3,6 @@
 $set_ids = '';
 $item_terms = array();
 
-
 // process GET params
 if (isset ($_GET['t'])) {
     // process a tag query
@@ -36,6 +35,7 @@ if (isset($_POST['qTags'])) {
 $page_info = paginate($records, $current_page, $max_records_per_page);
 $page_items = $page_info['pages'];
 $pagination_code = $page_info['pagination_code'];
+$max_page_no = $page_info['total_pages'];
 
 if (count($page_items) > 0) {
     $set_ids = get_img_ids($page_items);

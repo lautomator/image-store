@@ -20,12 +20,16 @@
 
         <!-- home page -->
         <?php if ($page == 'home'): ?>
-            <script>
-                // targets
-                imageStoreApp.targets["pageNo"] = document.getElementById("pageNo");
-                // listen for page changes
-                imageStoreApp.pageNoListener(imageStoreApp.targets);
-            </script>
+            <?php if (isset($max_page_no)): ?>
+                <?php if ($max_page_no > 1): ?>
+                    <script>
+                        // targets
+                        imageStoreApp.targets["pageNo"] = document.getElementById("pageNo");
+                        // listen for page changes
+                        imageStoreApp.pageNoListener(imageStoreApp.targets, <?php echo $max_page_no; ?>, "<?php echo $urls['home']; ?>");
+                    </script>
+                <?php endif; ?>
+            <?php endif; ?>
         <?php endif; ?>
     <?php endif; ?>
 </body>
