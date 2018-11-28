@@ -56,7 +56,10 @@ input { margin: 4px 4px 4px 0; }
     padding: 0;
 }
 
-#pageNo { width: 50px; }
+#pageNo {
+    text-align: center;
+    width: 50px;
+}
 
 
 /* desktop only */

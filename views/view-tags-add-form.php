@@ -14,7 +14,7 @@
                     <p class="text-danger"><?php echo $err_msg; ?></p>
                 <?php endif; ?>
             </div>
-            <div class="col-md-4"><?php //require_once('view-properties-page-nav.php'); ?></div>
+            <div class="col-md-4"><?php require_once('view-properties-page-nav.php'); ?></div>
             <div class="col-md-3"><?php require_once('view-add-cart.php'); ?></div>
         </div>
     <?php endif; ?>
