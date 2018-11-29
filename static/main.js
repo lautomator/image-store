@@ -67,11 +67,65 @@ var imageStoreApp = {
         }
     },
     pageNoListener: function (target, maxPages, destinationUrl) {
+        "use strict";
         // listen for change in page number input
         target.pageNo.addEventListener("keypress", function(item) {
             if (item.key === "Enter" || item.keyCode === "13") {
                 imageStoreApp.processPageNoInput(target.pageNo.value, maxPages, destinationUrl);
             }
         });
+    },
+    imgCtrls: function (target) {
+        "use strict";
+        // control the image size and panning
+        var index = 0;
+        var bgSize = 100;
+        var bgPosX = 0;
+        var bgPosY = 0;
+        var bgIncr = 5;
+
+        while (index < target.length) {
+            target[index].addEventListener("click", function(item) {
+                if (item.target.textContent === "+") {
+                    // increase
+                    // convert to number and remove "%"
+                    bgSize = Number(item.path[3].style.backgroundSize.replace("%", ""));
+                    bgSize += bgIncr;
+                    bgSize = bgSize.toString() + "%";
+                    item.path[3].style.backgroundSize = bgSize;
+                } else if (item.target.textContent === "–") {
+                    // reduce
+                    // convert to number and remove "%"
+                    bgSize = Number(item.path[3].style.backgroundSize.replace("%", ""));
+                    bgSize -= bgIncr;
+                    bgSize = bgSize.toString() + "%";
+                    item.path[3].style.backgroundSize = bgSize;
+                } else if (item.target.textContent === "←") {
+                    // move left
+                    // convert to number and remove "px"
+                    bgPosX = Number(item.path[3].style.backgroundPositionX.replace("px", ""));
+                    bgPosX -= bgIncr;
+                    item.path[3].style.backgroundPositionX = bgPosX.toString() + "px";
+                } else if (item.target.textContent === "→") {
+                    // move right
+                    // convert to number and remove "px"
+                    bgPosX = Number(item.path[3].style.backgroundPositionX.replace("px", ""));
+                    bgPosX += bgIncr;
+                    item.path[3].style.backgroundPositionX = bgPosX.toString() + "px";
+                } else if (item.target.textContent === "↑") {
+                    // move up
+                    // convert to number and remove "px"
+                    bgPosY = Number(item.path[3].style.backgroundPositionY.replace("px", ""));
+                    bgPosY -= bgIncr;
+                    item.path[3].style.backgroundPositionY = bgPosY.toString() + "px";
+                } else {
+                    // move down
+                    bgPosY = Number(item.path[3].style.backgroundPositionY.replace("px", ""));
+                    bgPosY += bgIncr;
+                    item.path[3].style.backgroundPositionY = bgPosY.toString() + "px";
+                }
+            }, false);
+            index += 1;
+        }
     }
 };

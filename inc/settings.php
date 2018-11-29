@@ -14,7 +14,7 @@ $cache = rand(); // dev only
 // $cache = '2018-11-14';
 
 // pages
-$max_records_per_page = 5;
+$max_records_per_page = 25;
 $default_page = 1;
 
 // pages that use the main javascript
@@ -24,7 +24,7 @@ $script_pages = array('home', 'properties', 'viewer');
 $extensions_in = array('.jpg', '.jpeg', '.tif', '.tiff', '.gif', '.png');
 
 // cart size
-$cart_size = 4;
+$cart_size = 3;
 
 // login attempts
 $max_login_attempts = 3;

@@ -1,5 +1,5 @@
     <script src="<?php echo $static_dir . 'vendor/jquery/jquery.min.js'; ?>"></script>
-    <script src="<?php echo $static_dir . 'vendor/bootstrap/js/bootstrap.bundle.min.js'; ?>"></script>
+    <script src="<?php echo $static_dir . 'vendor/bootstrap/js/bootstrap.min.js'; ?>"></script>
     <?php if (in_array($page, $script_pages)): ?>
         <script src="<?php echo $static_dir . 'main.js?v=' . $cache; ?>"></script>
 
@@ -33,19 +33,11 @@
         <?php endif; ?>
 
 
-        <!-- home page -->
+        <!-- viewer page -->
         <?php if ($page == 'viewer'): ?>
             <script>
-                var index = 0;
-                var target = document.getElementsByClassName("ist-cart-bg-img");
-                while (index < target.length) {
-                    target[index].addEventListener("click", function(item) {
-                        console.log(item);
-                    }, false);
-                    index += 1;
-                }
-
-
+                imageStoreApp.targets["imgCtrl"] = document.getElementsByClassName("ist-ctrl");
+                imageStoreApp.imgCtrls(imageStoreApp.targets["imgCtrl"]);
             </script>
         <?php endif; ?>
     <?php endif; ?>
