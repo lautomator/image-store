@@ -16,21 +16,21 @@
 
         <div class="col-md-6">
             <?php if (isset($unq_names)): ?>
-            <ul>
+            <ol>
                 <?php foreach ($unq_names as $u_name): ?>
                     <li><span class="text-success ist-file-names"><?php echo $u_name; ?></span> was uploaded.</li>
                 <?php endforeach; ?>
-            </ul>
+            </ol>
             <?php endif; ?>
             <?php if (isset($err_msg)): ?>
                 <p class="text-danger"><?php echo $err_msg; ?></p>
             <?php endif; ?>
             <?php if (count($dup_names) > 0): ?>
-                <ul>
+                <ol>
                     <?php foreach ($dup_names as $dup): ?>
                         <li><span class="text-warning ist-file-names"><?php echo $dup; ?></span> was not uploaded because it already exists.</li>
                     <?php endforeach; ?>
-                </ul>
+                </ol>
             <?php endif; ?>
         </div>
     </div>
