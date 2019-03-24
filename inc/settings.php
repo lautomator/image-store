@@ -28,3 +28,6 @@ $cart_size = 3;
 
 // login attempts
 $max_login_attempts = 3;
+
+// debug
+$debug = true;

@@ -14,10 +14,21 @@ a { color: black; }
 
 a:hover { color: limegreen; }
 
-a .ist-tag:hover {
+a .ist-tag:hover{
     border: dotted 1px limegreen;
     color: limegreen;
+}
 
+a .ist-tag-queried {
+    background-color: limegreen;
+    border: solid 1px limegreen;
+    color: white;
+}
+
+a .ist-tag-queried:hover {
+    background-color: white;
+    border: dotted 1px limegreen;
+    color: limegreen;
 }
 
 .ist-file-names { word-break: break-all; }
