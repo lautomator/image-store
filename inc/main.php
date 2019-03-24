@@ -469,3 +469,25 @@ function sort_terms($terms, $sortby) {
     return $all_terms;
 }
 
+function parse_url_queries($q) {
+    // Returns a url squery string <str>.
+    // Takes in any get params <array>.
+    $q_string = '&';
+
+    if (count($q) > 1) {
+        foreach ($q as $query) {
+            $q_string .= $query . '&';
+        }
+        $q_string = rtrim($q_string,'&');
+    } elseif (count($q) == 1) {
+        // there's only one query
+        $q_string .= $q[0];
+    } else {
+        $q_string = '';
+    }
+
+    return $q_string;
+
+}
+
+
