@@ -125,25 +125,24 @@ function paginate($records, $page_no, $max_records) {
         'current_page' => 1
     );
 
+    // store stats
+    $total_pages = ceil(count($records) / $max_records);
+    $page_of_records['total_pages'] = $total_pages;
+    $page_of_records['current_page'] = $page_no;
+
     // get the starting point
     $index = ($page_no - 1) * $max_records;
 
     // get the ending point
     $index_end = $index + $max_records;
-    // if (count($records) >= $max_records) {
-    //     $index_end = $index + $max_records;
-    // } else {
-    //     $index_end = count($records);
-    // }
 
-    if ($page_no == count($page_of_records['pages'])) {
+    if ($page_no == $total_pages) {
+        // the last page of records
         $index_end = count($records);
+    } else {
+        // all other pages
+        $index_end = $index + $max_records;
     }
-
-    // store stats
-    $total_pages = ceil(count($records) / $max_records);
-    $page_of_records['total_pages'] = $total_pages;
-    $page_of_records['current_page'] = $page_no;
 
     // gather the records for a page
     while ($index < $index_end) {
