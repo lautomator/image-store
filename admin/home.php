@@ -14,11 +14,16 @@ if (isset ($_GET['t'])) {
     $query = 't=' . $_GET['t'];
     array_push($url_queries, $query);
 
+} else if (isset($_GET['q'])) {
+    // process record ids from a search
+    $q = get_all_qs($_GET['q']);
+    $records = get_records($result['img_data'], $q);
 } else {
     // get all of the records
     $records = $result['img_data'];
 }
 
+// handle pagination GET params
 if (isset ($_GET['p'])) {
     // process a page query
     $current_page = $_GET['p'];
@@ -28,13 +33,8 @@ if (isset ($_GET['p'])) {
     $current_page = $default_page;
 }
 
-if (isset($_GET['q'])) {
-    // records from a search
-    $q = get_all_qs($_GET['q']);
-    $records = get_records($result['img_data'], $q);
 
-}
-
+// setup vars for page rendering
 $url_query = parse_url_queries($url_queries);
 $page_info = paginate($records, $current_page, $max_records_per_page);
 $page_items = $page_info['pages'];

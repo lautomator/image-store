@@ -479,11 +479,11 @@ function parse_url_queries($q) {
             $q_string .= $query . '&';
         }
         $q_string = rtrim($q_string,'&');
-    } elseif (count($q) == 1) {
+    } else if (count($q) == 1) {
         // there's only one query
         $q_string .= $q[0];
     } else {
-        $q_string = '';
+        $q_string = $q;
     }
 
     return $q_string;
