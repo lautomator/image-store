@@ -28,15 +28,11 @@ if (isset ($_GET['p'])) {
     $current_page = $default_page;
 }
 
-if (isset($_POST['qTags'])) {
-    require_once('inc/select-tags.php');
-    if (isset($q)) {
-        if (count($q) > 0) {
-            $records = get_records($result['img_data'], $q);
-        } else {
-            $no_records_warn = 'There are no results for that search.';
-        }
-    }
+if (isset($_GET['q'])) {
+    // records from a search
+    $q = get_all_qs($_GET['q']);
+    $records = get_records($result['img_data'], $q);
+
 }
 
 $url_query = parse_url_queries($url_queries);

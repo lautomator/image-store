@@ -1,9 +1,9 @@
 <?php
 
 function get_all_qs($q) {
-    // Returns all of the tag ids <array>
+    // Returns all of the tag or record ids <array>
     // from the get param pass in <str>.
-    $filtered_query = explode(' ', $q);
+    $filtered_query = explode(',', $q);
     return $filtered_query;
 }
 
@@ -470,7 +470,7 @@ function sort_terms($terms, $sortby) {
 }
 
 function parse_url_queries($q) {
-    // Returns a url squery string <str>.
+    // Returns a url query string <str>.
     // Takes in any get params <array>.
     $q_string = '&';
 
