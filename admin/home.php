@@ -7,17 +7,28 @@ $query = '';
 
 // process GET params
 if (isset ($_GET['t'])) {
+
     // process a tag query
     $t = get_all_qs($_GET['t']);
     $record_ids = filter_records($result['term_rels'], $t);
     $records = get_records($result['img_data'], $record_ids);
-    $query = 't=' . $_GET['t'];
-    array_push($url_queries, $query);
+    $query_tages = 't=' . $_GET['t'];
+    array_push($url_queries, $query_tages);
 
-} else if (isset($_GET['q'])) {
+} else if (isset($_GET['q']) && isset($_GET['qt'])) {
+
     // process record ids from a search
+    // and tags from that search
     $q = get_all_qs($_GET['q']);
+    $t = get_all_qs($_GET['qt']);
     $records = get_records($result['img_data'], $q);
+    // record ids
+    $query_ids = 'q=' . $_GET['q'];
+    array_push($url_queries, $query_ids);
+    // query tag ids
+    $query_t = 'qt=' . $_GET['qt'];
+    array_push($url_queries, $query_t);
+
 } else {
     // get all of the records
     $records = $result['img_data'];
@@ -27,8 +38,8 @@ if (isset ($_GET['t'])) {
 if (isset ($_GET['p'])) {
     // process a page query
     $current_page = $_GET['p'];
-    $query = 'p=' . $current_page;
-    // array_push($url_queries, $query);
+    $query_p = 'p=' . $current_page;
+    // array_push($url_queries, $query_p);
 } else {
     $current_page = $default_page;
 }
