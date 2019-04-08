@@ -483,11 +483,10 @@ function parse_url_queries($q) {
         // there's only one query
         $q_string .= $q[0];
     } else {
-        $q_string = $q;
+        $q_string = '';
     }
 
     return $q_string;
-
 }
 
 

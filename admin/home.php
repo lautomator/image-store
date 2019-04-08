@@ -4,7 +4,8 @@ $set_ids = '';
 $item_terms = array();
 $url_queries = array();
 $query = '';
-$t = null;
+$t = array();
+$item_queries = '';
 
 // process GET params
 if (isset ($_GET['t'])) {
@@ -13,8 +14,8 @@ if (isset ($_GET['t'])) {
     $t = get_all_qs($_GET['t']);
     $record_ids = filter_records($result['term_rels'], $t);
     $records = get_records($result['img_data'], $record_ids);
-    $query_tages = 't=' . $_GET['t'];
-    array_push($url_queries, $query_tages);
+    $query_tags = 't=' . $_GET['t'];
+    array_push($url_queries, $query_tags);
 
 } else if (isset($_GET['q']) && isset($_GET['qt'])) {
 
@@ -58,3 +59,14 @@ if (count($page_items) > 0) {
     $set_ids = get_img_ids($page_items);
 }
 
+if (isset($query_ids)) {
+    $item_queries .= '&' . $query_ids;
+}
+
+if (isset($query_tags)) {
+    $item_queries .= '&' . $query_tags;
+}
+
+if (isset($query_t)) {
+    $item_queries .= '&' . $query_t;
+}
