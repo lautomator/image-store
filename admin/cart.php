@@ -6,6 +6,7 @@ $cart_full = false;
 
 require_once('../inc/session.php');
 require_once('../inc/loader.php');
+require_once('home.php');
 
 if (isset($_COOKIE['ci'])) {
     $cart_empty = false;

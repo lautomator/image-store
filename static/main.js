@@ -59,19 +59,19 @@ var imageStoreApp = {
             index += 1;
         }
     },
-    processPageNoInput: function (inputVal, maxPages, destinationUrl) {
+    processPageNoInput: function (inputVal, maxPages, destinationUrl, urlQueries) {
         "use strict";
         // got to the selected page
         if (inputVal <= maxPages) {
-            window.location.href = destinationUrl + "?p=" + inputVal;
+            window.location.href = destinationUrl + "?p=" + inputVal + urlQueries;
         }
     },
-    pageNoListener: function (target, maxPages, destinationUrl) {
+    pageNoListener: function (target, maxPages, destinationUrl, urlQueries) {
         "use strict";
         // listen for change in page number input
         target.pageNo.addEventListener("keypress", function(item) {
             if (item.key === "Enter" || item.keyCode === "13") {
-                imageStoreApp.processPageNoInput(target.pageNo.value, maxPages, destinationUrl);
+                imageStoreApp.processPageNoInput(target.pageNo.value, maxPages, destinationUrl, urlQueries);
             }
         });
     },
