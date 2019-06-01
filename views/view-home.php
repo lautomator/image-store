@@ -17,7 +17,7 @@
                     <?php if (! empty($row)): ?>
                         <?php $img_id = $row['file_id']; ?>
                         <?php $item_terms = get_terms($result['term_rels'], $img_id); ?>
-                        <tr>
+                        <tr id="<?php echo $img_id; ?>">
                             <td><?php require('view-img-thmb.php'); ?></td>
                             <td><?php require('view-img-title.php'); ?></td>
                             <td><?php require('view-img-tags.php'); ?></td>
