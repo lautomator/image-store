@@ -48,25 +48,26 @@ if (isset ($_GET['p'])) {
 
 
 // setup vars for page rendering
-$url_query = parse_url_queries($url_queries);
-$page_info = paginate($records, $current_page, $max_records_per_page);
-$page_items = $page_info['pages'];
-$pagination_code = $page_info['pagination_code'];
-$max_page_no = $page_info['total_pages'];
+if (! empty($records)) {
+    $url_query = parse_url_queries($url_queries);
+    $page_info = paginate($records, $current_page, $max_records_per_page);
+    $page_items = $page_info['pages'];
+    $pagination_code = $page_info['pagination_code'];
+    $max_page_no = $page_info['total_pages'];
 
+    if (count($page_items) > 0) {
+        $set_ids = get_img_ids($page_items);
+    }
 
-if (count($page_items) > 0) {
-    $set_ids = get_img_ids($page_items);
-}
+    if (isset($query_ids)) {
+        $item_queries .= '&' . $query_ids;
+    }
 
-if (isset($query_ids)) {
-    $item_queries .= '&' . $query_ids;
-}
+    if (isset($query_tags)) {
+        $item_queries .= '&' . $query_tags;
+    }
 
-if (isset($query_tags)) {
-    $item_queries .= '&' . $query_tags;
-}
-
-if (isset($query_t)) {
-    $item_queries .= '&' . $query_t;
+    if (isset($query_t)) {
+        $item_queries .= '&' . $query_t;
+    }
 }
