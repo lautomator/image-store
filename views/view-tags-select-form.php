@@ -1,4 +1,4 @@
-<?php if (count($all_terms) > 0): ?>
+<?php if (isset($all_terms) > 0): ?>
     <form method="post" action="../inc/process-search.php" class="form-inline">
         <div class="row">
             <?php foreach ($all_terms as $terms): ?>
