@@ -1,6 +1,8 @@
 <div class="container">
     <p>Upload new images to the store.</p>
 
+    <p><em class="text-warning">Image names should not have any spaces. Use a dash or underscore.</em></p>
+
     <div class="row">
         <div class="col-md-6">
             <form action="<?php echo $urls['register']; ?>" method="post" enctype="multipart/form-data" id="uploadImage">

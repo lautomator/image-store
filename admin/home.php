@@ -40,8 +40,13 @@ if (isset ($_GET['t'])) {
 if (isset ($_GET['p'])) {
     // process a page query
     $current_page = $_GET['p'];
+    $total_pages = ceil(count($records) / $max_records_per_page);
+
+    if ($current_page > $total_pages) {
+        $current_page = $total_pages;
+    }
+
     $query_p = 'p=' . $current_page;
-    // array_push($url_queries, $query_p);
 } else {
     $current_page = $default_page;
 }

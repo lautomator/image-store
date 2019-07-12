@@ -3,7 +3,7 @@
         <?php if ($render): ?>
             <?php require_once('view-img-tags.php'); ?>
         <?php else: ?>
-            <p class="danger"><?php echo $msg; ?></p>
+            <p class="text-warning"><?php echo $msg; ?></p>
         <?php endif; ?>
     </div>
 </div>

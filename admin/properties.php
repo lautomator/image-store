@@ -16,9 +16,14 @@ require_once('../inc/nav.php');
 // GET
 if (isset($_GET['img_id'])) {
     $img_id = $_GET['img_id'];
-    $record = get_records($result['img_data'], array($img_id))[0];
 
-    if (empty($record)) {
+    if (! empty(get_records($result['img_data'], array($img_id)))) {
+        $record = get_records($result['img_data'], array($img_id))[0];
+    } else {
+        $record = null;
+    }
+
+    if (is_null($record)) {
         $msg = 'There is no record for id = ' . $img_id . '.';
     } else {
         $item_terms = get_terms($result['term_rels'], $_GET['img_id']);
