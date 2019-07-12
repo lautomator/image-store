@@ -1,9 +1,10 @@
 <div class="container">
-    <div class="ist-properties">
-        <?php if ($render): ?>
+    <p>Choose a tag.</p>
+    <?php if ($render): ?>
+        <div class="ist-properties">
             <?php require_once('view-img-tags.php'); ?>
-        <?php else: ?>
-            <p class="text-warning"><?php echo $msg; ?></p>
-        <?php endif; ?>
-    </div>
+        </div>
+    <?php else: ?>
+        <p class="text-warning"><?php echo $msg; ?></p>
+    <?php endif; ?>
 </div>
