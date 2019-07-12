@@ -8,8 +8,9 @@ $can_add_term_rel = false;
 
 if (isset($_GET)) {
     $img_id = $_GET['img_id'];
+    $p = $_GET['p'];
     $slug = $_GET['slug'];
-    $redirect = 'Location: ' . $urls['properties'] . '?img_id=' . $img_id;
+    $redirect = 'Location: ' . $urls['properties'] . '?img_id=' . $img_id . '&p=' . $p;
 }
 
 // get the term id for the new term rel

@@ -7,12 +7,13 @@ require_once('data.php');
 if (isset($_POST)) {
     $user_in = htmlspecialchars(trim($_POST['addTag']));
     $img_id = $_POST['imgId'];
+    $p = $_POST['p'];
     $can_add_term = false;
     $term_rel_updated = false;
     $term = array();
     $err_msg = '';
     $terms_updated = false;
-    $redirect = 'Location: ' . $urls['properties'] . '?img_id=' . $img_id;
+    $redirect = 'Location: ' . $urls['properties'] . '?img_id=' . $img_id . '&p=' . $p;
     $this_img_terms = get_terms($result['term_rels'], $img_id);
 
     // check for valid input (letters only)
@@ -64,6 +65,6 @@ if ($can_add_term) {
 
 // update the term rels
 if ($terms_updated) {
-    header('Location: ' . 'insert-term-rel.php?img_id=' . $img_id . '&slug=' . $term_slug);
+    header('Location: ' . 'insert-term-rel.php?img_id=' . $img_id . '&p=' . $p . '&slug=' . $term_slug);
 }
 
