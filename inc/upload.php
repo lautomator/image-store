@@ -52,6 +52,10 @@ if (isset($upload_file_info)) {
                 } else {
                     array_push($dup_names, $ul_file_name);
                 }
+            } else {
+                // adding images for the first time
+                $col_vals .= '(' . '"' . $ul_file_path . '"' . ', ' . '"' . $ul_file_name . '"' . ', ' . '"' . $ul_file_ext . '"' . '),';
+                array_push($unq_names, $ul_file_name);
             }
         }
 
