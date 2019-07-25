@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid cart-viewer">
     <div class="row">
         <?php if (count($all_cart_records) > 0): ?>
             <?php foreach ($all_cart_records as $row): ?>
