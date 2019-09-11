@@ -12,9 +12,9 @@ $result = array(
 );
 
 if ($success) {
-    $sql_images = 'SELECT * FROM images ORDER BY file_id ASC';
-    $sql_terms = 'SELECT * FROM terms ORDER BY term_id ASC';
-    $sql_term_rels = 'SELECT * FROM term_rels ORDER BY rel_id ASC';
+    $sql_images = 'SELECT * FROM images ORDER BY file_id DESC';
+    $sql_terms = 'SELECT * FROM terms ORDER BY term_id DESC';
+    $sql_term_rels = 'SELECT * FROM term_rels ORDER BY rel_id DESC';
 
     // get image data
     $result_images = mysqli_query($link, $sql_images);
