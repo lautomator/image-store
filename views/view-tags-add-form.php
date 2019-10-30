@@ -8,7 +8,9 @@
                         <input name="imgId" value="<?php echo $img_id; ?>" type="hidden">
                         <input name="p" value="<?php echo $page_no; ?>" type="hidden">
                         <input class="btn-success form-control" type="submit" value="Add">
-                        <div class="ist-form-suggestions-panel"><ul class="ist-form-suggestions"><li class="ist-tag-suggestion">&nbsp;</li></ul></div>
+                        <div class="ist-form-suggestions-panel">
+                            <div class="ist-form-suggestions"><span class="ist-tag-suggestion">&nbsp;</span></div>
+                        </div>
                     </div>
                 </form>
                 <?php if (isset($err_msg)): ?>

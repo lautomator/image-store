@@ -60,7 +60,20 @@ input { margin: 4px 4px 4px 0; }
 .ist-cell-40 { width: 40%; }
 .ist-review-img { width: 100%; }
 
-.ist-form-suggestions-panel { display: none; }
+.ist-form-suggestions-panel {
+    display: none;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    word-break: break-all;
+}
+
+.ist-form-suggestions span {
+    color: limegreen;
+    cursor: pointer;
+    margin-right: 8px;
+}
 
 .ist-cart-item {
     margin: 0;
@@ -96,27 +109,6 @@ input { margin: 4px 4px 4px 0; }
     }
 
     .ist-thumb-img:hover { height: 400px; }
-
-    .ist-form-suggestions-panel {
-        border: 1px dotted limegreen;
-        display: none;
-        left: 15px;
-        opacity: 0.6;
-        position: absolute;
-        top: 50px;
-        width: 190px;
-    }
-
-    .ist-form-suggestions {
-        cursor: pointer;
-        list-style: none;
-    }
-
-    .ist-form-suggestions li {
-        color: limegreen;
-        margin-left: -25px;
-        width: 100%;
-    }
 
     .ist-review-img {
         max-height: 450px;
@@ -162,5 +154,11 @@ input { margin: 4px 4px 4px 0; }
         position: relative;
         bottom: 4px;
         left: 0;
+    }
+
+    .ist-form-suggestions-panel {
+        left: 15px;
+        position: absolute;
+        top: 50px;
     }
 }

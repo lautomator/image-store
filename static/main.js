@@ -14,7 +14,7 @@ var imageStoreApp = {
         while (index < tags.length) {
             if (uInput.toLowerCase()[0] === tags[index][0].toLowerCase()) {
                 // store in the results array
-                results.push(tags[index]);
+                results.push(tags[index].trim());
             }
             index += 1;
         }
@@ -23,11 +23,12 @@ var imageStoreApp = {
         index = 0;
         if (results.length > 0) {
             // show
-            imageStoreApp.targets.formSuggestionsPanel[0].style.display = "inline";
+            imageStoreApp.targets.formSuggestionsPanel[0].style.display = "block";
             // clear
             clear(imageStoreApp.targets.formSuggestions[0]);
+            imageStoreApp.targets.formSuggestions[0].innerHTML = "";
             while (index < results.length) {
-                imageStoreApp.targets.formSuggestions[0].innerHTML += "<li class='ist-tag-suggestion'>" + results[index] + "</li>";
+                imageStoreApp.targets.formSuggestions[0].innerHTML += "<span class='ist-tag-suggestion'>" + results[index] + "</span>";
                 index += 1;
             }
             // listen for clicks
