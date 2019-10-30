@@ -14,6 +14,12 @@ if (isset($_COOKIE['ci'])) {
     $cart_items = get_records($result['img_data'], $cook_img_ids);
 }
 
+if (isset($_GET['img_id'])) {
+    $img_id = explode(':', $_GET['img_id'])[0];
+} else {
+    $img_id = '';
+}
+
 require_once('../inc/header.php');
 require_once('../inc/nav.php');
 require('../views/view-cart.php');

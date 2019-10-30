@@ -14,5 +14,5 @@ if (isset($_POST['cartImgId'])) {
     }
 
     setcookie($c_name, $c_val, time() + (86400), "/");
-    header('Location: ' . $urls['cart'] . '?p=' . $return_page);
+    header('Location: ' . $urls['cart'] . '?p=' . $return_page . '&img_id=' . $c_val);
 }
