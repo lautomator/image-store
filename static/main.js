@@ -23,7 +23,7 @@ var imageStoreApp = {
         index = 0;
         if (results.length > 0) {
             // show
-            imageStoreApp.targets.formSuggestionsPanel[0].style.display = "inline-block";
+            imageStoreApp.targets.formSuggestionsPanel[0].style.display = "inline";
             // clear
             clear(imageStoreApp.targets.formSuggestions[0]);
             while (index < results.length) {
