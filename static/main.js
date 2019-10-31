@@ -76,6 +76,29 @@ var imageStoreApp = {
             }
         });
     },
+    returnScroll: function () {
+        // adjusts the scroll position when
+        // returning to the home page
+        var currPos = window.scrollY;
+        var newPos = 45;
+
+        if (currPos === 0) {
+            window.scroll({
+                top: newPos,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            newPos = currPos - 60;
+            window.scroll({
+                top: newPos,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        return false;
+    },
     imgCtrls: function (target) {
         "use strict";
         // control the image size and panning

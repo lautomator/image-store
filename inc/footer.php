@@ -3,6 +3,13 @@
     <?php if (in_array($page, $script_pages)): ?>
         <script src="<?php echo $static_dir . 'main.js?v=' . $cache; ?>"></script>
 
+        <!-- scroll compensation -->
+        <?php if (isset($has_returned)): ?>
+            <?php if ($has_returned): ?>
+                <script>window.onload = imageStoreApp.returnScroll;</script>
+            <?php endif; ?>
+        <?php endif; ?>
+
         <!-- properties page -->
         <?php if ($page == 'properties' && isset($tag_names)): ?>
             <script>

@@ -6,6 +6,7 @@ $url_queries = array();
 $query = '';
 $t = array();
 $item_queries = '';
+$has_returned = false;
 
 // process GET params
 if (isset ($_GET['t'])) {
@@ -51,6 +52,12 @@ if (isset ($_GET['p'])) {
     $current_page = $default_page;
 }
 
+// handle a return to home page to trigger the scroll compensation
+if (isset($_GET['return'])) {
+    if ($_GET['return'] == 'true') {
+        $has_returned = true;
+    }
+}
 
 // setup vars for page rendering
 if (! empty($records)) {
