@@ -4,6 +4,7 @@
             <thead>
                 <tr>
                     <th>&nbsp;</th>
+                    <th>Order</th>
                     <th>Name</th>
                     <th>Tags</th>
                 </tr>
@@ -13,9 +14,11 @@
                     <?php $item_terms = get_terms($result['term_rels'], $row['file_id']); ?>
                     <tr>
                         <td><?php require('view-img-thmb.php'); ?></td>
+                        <td><?php echo key($cart_items) + 1; ?></td>
                         <td><?php require('view-img-title.php'); ?></td>
                         <td><?php require('view-img-tags.php'); ?></td>
                     <tr>
+                    <?php next($cart_items); ?>
                 <?php endforeach; ?>
             </tbody>
         </table>
@@ -35,6 +38,10 @@
                         <?php foreach ($cart_items as $item): ?>
                             <input type="hidden" name="item-<?php echo $item['file_id']; ?>" value="<?php echo $item['file_id']; ?>">
                         <?php endforeach; ?>
+
+                        <?php if (count($cart_items) == 3): ?>
+                            <?php require('view-order-matrix.php'); ?>
+                        <?php endif; ?>
                         <input class="btn-success" type="submit" name="viewer" value="View">
                     </div>
                 </form>

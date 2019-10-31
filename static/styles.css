@@ -1,5 +1,7 @@
 .ist-thumb-img { height: 100px; }
 
+.ist-seq-thmb { height: 25px; }
+
 .ist-tag {
     border: dotted 1px silver;
     border-radius: 3px;

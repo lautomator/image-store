@@ -12,6 +12,14 @@ if (isset($_COOKIE['ci'])) {
     $cart_empty = false;
     $cook_img_ids = explode(':', $_COOKIE['ci']);
     $cart_items = get_records($result['img_data'], $cook_img_ids);
+    $sequence_matrix = array(
+        1 => array(0, 1, 2),
+        2 => array(1, 2, 0),
+        3 => array(2, 0, 1),
+        4 => array(0, 2, 1),
+        5 => array(1, 0, 2),
+        6 => array(2, 1, 0)
+    );
 }
 
 if (isset($_GET['img_id'])) {
