@@ -14,7 +14,7 @@
                     <?php $item_terms = get_terms($result['term_rels'], $row['file_id']); ?>
                     <tr>
                         <td><?php require('view-img-thmb.php'); ?></td>
-                        <td><?php echo key($cart_items) + 1; ?></td>
+                        <td><input value="<?php echo key($cart_items) + 1; ?>" type="text" name="order_<?php echo key($cart_items) + 1; ?>"></td>
                         <td><?php require('view-img-title.php'); ?></td>
                         <td><?php require('view-img-tags.php'); ?></td>
                     <tr>
