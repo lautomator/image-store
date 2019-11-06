@@ -47,14 +47,19 @@
                         var cartSeqTargets = document.getElementsByClassName("cart_sequence_options");
                         var cartFinalSequence = document.getElementsByClassName("cart_final_sequence");
                         var index = 0;
-                        var label = '';
+                        var len = <?php echo $cart_size; ?>
 
                         // setup the html targets
                         imageStoreApp.targets["cartSeqTargets"] = cartSeqTargets;
                         imageStoreApp.targets["cartFinalSequence"] = cartFinalSequence;
 
-                        // run the function and listen for changes
-                        imageStoreApp.handleImageSeqValues();
+                        while (index < len) {
+                            // listen for changes
+                            imageStoreApp.targets.cartSeqTargets[index].addEventListener('input', function (event) {
+                                imageStoreApp.handleImageSeqValues(event.target.name, event.target.value);
+                            });
+                            index += 1;
+                        }
                     </script>
                 <?php endif; ?>
             <?php endif; ?>

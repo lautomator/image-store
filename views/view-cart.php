@@ -15,7 +15,7 @@
                     <tr>
                         <td><?php require('view-img-thmb.php'); ?></td>
                         <?php if (count($cart_items) == $cart_size): ?>
-                            <td><input class="cart_sequence_options" value="<?php echo key($cart_items) + 1; ?>" type="text" name="seqOption<?php echo key($cart_items) + 1; ?>"></td>
+                            <td><input class="cart_sequence_options" value="<?php echo key($cart_items) + 1; ?>" type="text" name="<?php echo key($cart_items); ?>"></td>
                         <?php else: ?>
                             <td>&nbsp;</td>
                         <?php endif; ?>
@@ -41,8 +41,9 @@
                     <form method="post" action="<?php echo $urls['viewer']; ?>">
                         <div class="form-group">
                             <?php foreach ($cart_items as $item): ?>
-                                <input type="hidden" name="item-<?php echo $item['file_id']; ?>" value="<?php echo $item['file_id']; ?>">
-                                <input class="cart_final_sequence" type="hidden" value="null">
+                                <input type="hidden" name="item_<?php echo $item['file_id']; ?>" value="<?php echo $item['file_id']; ?>">
+                                <input class="cart_final_sequence" name="final_seq_option_<?php echo $item['file_id']; ?>" type="hidden" value="<?php echo key($cart_items) + 1; ?>">
+                                <?php next($cart_items); ?>
                             <?php endforeach; ?>
 
                             <input class="btn-success" type="submit" name="viewer" value="View">
