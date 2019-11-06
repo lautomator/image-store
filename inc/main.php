@@ -103,6 +103,12 @@ function get_records($all_records, $img_ids) {
     return $filtered;
 }
 
+function sort_cart_items($cart_records, $sort_structure) {
+    // Returns sorted image ids <array>. Takes in
+    // the full cart records <array> and the sort order
+    // structure <array>. Is used for the cart viewer.
+}
+
 function paginate($records, $page_no, $max_records) {
     // Returns all of the records for a specified
     // page <array>, a pagination code <int>

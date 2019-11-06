@@ -18,7 +18,7 @@ $max_records_per_page = 25;
 $default_page = 1;
 
 // pages that use the main javascript
-$script_pages = array('home', 'properties', 'viewer');
+$script_pages = array('home', 'properties', 'viewer', 'cart');
 
 // acceptable file extension
 $extensions_in = array('.jpg', '.jpeg', '.tif', '.tiff', '.gif', '.png');

@@ -24,10 +24,13 @@ if (isset($_POST)) {
 
     $image_sequence = explode(',', $_POST['imgSequence']);
 
-    // reorder the images according to the sequence
-
     // get the full records from the ids
     $all_cart_records = get_records($result['img_data'], $all_cart_img_ids);
+
+    // reorder the images according to the sequence
+    $final_cart_records = sort_cart_items($all_cart_records, $image_sequence);
+
+    // set up the render
     $cart_grid = ceil(12 / $cart_size);
 
     if ($cart_size <= 6) {

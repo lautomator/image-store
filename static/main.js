@@ -151,5 +151,26 @@ var imageStoreApp = {
             }, false);
             index += 1;
         }
+    },
+    handleImageSeqValues: function () {
+        "use strict";
+
+        var index = 0;
+        var len = imageStoreApp.targets.cartSeqTargets.length;
+
+        while (index < len) {
+            // listen for changes
+            imageStoreApp.targets.cartSeqTargets[index].addEventListener('input', function (event) {
+                // console.log(event.target, event.target.value);
+                // update the value of the hidden fields in the DOM
+                document.getElementsByClassName("cart_final_sequence")[index].value = event.target.value;
+            });
+
+            index += 1;
+        }
+
+        console.log(imageStoreApp.targets.cartFinalSequence);
+
+        return false;
     }
 };

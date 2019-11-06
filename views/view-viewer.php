@@ -28,3 +28,9 @@
         <?php endif; ?>
     </div>
 </div>
+
+<pre>
+    <?php //print_r($all_cart_records); ?>
+    <?php //print_r($image_sequence); ?>
+    <?php print_r($_POST); ?>
+</pre>

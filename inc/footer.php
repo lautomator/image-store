@@ -10,8 +10,8 @@
             <?php endif; ?>
         <?php endif; ?>
 
-        <!-- properties page -->
         <?php if ($page == 'properties' && isset($tag_names)): ?>
+            <!-- properties page -->
             <script>
                 // tags and targets
                 imageStoreApp.currentTags = "<?php echo $tag_names; ?>".split(",").sort();
@@ -25,8 +25,8 @@
             </script>
         <?php endif; ?>
 
-        <!-- home page -->
         <?php if ($page == 'home'): ?>
+            <!-- home page -->
             <?php if (isset($max_page_no)): ?>
                 <?php if ($max_page_no > 1): ?>
                     <script>
@@ -39,14 +39,35 @@
             <?php endif; ?>
         <?php endif; ?>
 
+        <?php if ($page == 'cart'): ?>
+            <!-- cart page -->
+            <?php if (isset($cart_items)): ?>
+                <?php if (count($cart_items) == $cart_size): ?>
+                    <script>
+                        var cartSeqTargets = document.getElementsByClassName("cart_sequence_options");
+                        var cartFinalSequence = document.getElementsByClassName("cart_final_sequence");
+                        var index = 0;
+                        var label = '';
 
-        <!-- viewer page -->
+                        // setup the html targets
+                        imageStoreApp.targets["cartSeqTargets"] = cartSeqTargets;
+                        imageStoreApp.targets["cartFinalSequence"] = cartFinalSequence;
+
+                        // run the function and listen for changes
+                        imageStoreApp.handleImageSeqValues();
+                    </script>
+                <?php endif; ?>
+            <?php endif; ?>
+        <?php endif; ?>
+
         <?php if ($page == 'viewer'): ?>
+            <!-- viewer page -->
             <script>
                 imageStoreApp.targets["imgCtrl"] = document.getElementsByClassName("ist-ctrl");
                 imageStoreApp.imgCtrls(imageStoreApp.targets["imgCtrl"]);
             </script>
         <?php endif; ?>
+
     <?php endif; ?>
 </body>
 </html>
