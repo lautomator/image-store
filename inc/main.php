@@ -103,10 +103,30 @@ function get_records($all_records, $img_ids) {
     return $filtered;
 }
 
-function sort_cart_items($cart_records, $sort_structure) {
+function sort_cart_items($cart_records, $sort_order) {
     // Returns sorted image ids <array>. Takes in
     // the full cart records <array> and the sort order
     // structure <array>. Is used for the cart viewer.
+    $total_positions = count($cart_records); // number of slots to fill
+    $reorderd = array();
+    $index = 0;
+
+    // set up the array structure
+    while ($index < $total_positions) {
+        $reorderd[$index] = array();
+        $index += 1;
+    }
+
+    // reorder the records according to the sort_order
+    foreach ($sort_order as $key => $val) {
+        foreach ($cart_records as $records => $rec) {
+            if ($rec['file_id'] == $val['id']) {
+                $reorderd[$val['ord']] = $rec;
+            }
+        }
+    }
+
+    return $reorderd;
 }
 
 function paginate($records, $page_no, $max_records) {

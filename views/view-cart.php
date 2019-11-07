@@ -15,7 +15,7 @@
                     <tr>
                         <td><?php require('view-img-thmb.php'); ?></td>
                         <?php if (count($cart_items) == $cart_size): ?>
-                            <td><input class="cart_sequence_options" value="<?php echo key($cart_items) + 1; ?>" type="text" name="<?php echo key($cart_items); ?>"></td>
+                            <td><input class="cart_sequence_options" value="<?php echo key($cart_items) + 1; ?>" type="number" name="<?php echo key($cart_items); ?>" max="<?php echo $cart_size; ?>" min="1"></td>
                         <?php else: ?>
                             <td>&nbsp;</td>
                         <?php endif; ?>
