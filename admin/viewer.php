@@ -5,6 +5,7 @@ $all_cart_img_ids = array();
 $all_cart_records = array();
 $image_sequence = array();
 $ids_img_order = array();
+$index = 0;
 
 require_once('../inc/session.php');
 require_once('../inc/loader.php');
