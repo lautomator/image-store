@@ -8,7 +8,6 @@ require_once('../inc/urls.php');
 // // clear
 if (isset($_SESSION['user']) || isset($_GET['logout'])) {
     session_unset();
-    session_destroy();
 }
 
 if (! isset($_COOKIE['login_attempts'])) {
