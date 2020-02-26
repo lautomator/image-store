@@ -6,3 +6,15 @@ Deny from all
 
 # Disable directory browsing
 Options -Indexes
+
+# Deny access to files with extensions .ini, .log, .sh
+<FilesMatch "\.(ini|log|sh)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+# Deny access to filenames starting with dot(.)
+<FilesMatch "^\.">
+Order allow,deny
+Deny from all
+</FilesMatch>
