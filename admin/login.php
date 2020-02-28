@@ -5,7 +5,7 @@ $can_login = true;
 require_once('../inc/settings.php');
 require_once('../inc/urls.php');
 
-// // clear
+// clear
 if (isset($_SESSION['user']) || isset($_GET['logout'])) {
     session_unset();
 }
