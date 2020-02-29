@@ -18,7 +18,7 @@ if (isset($_POST['upload'])) {
     # define the path to the upload folder
     $destination = '../uploads/';
     # call the upload class
-    require_once('../inc/uploader.php');
+    require_once('uploader.php');
     try {
         $upload = new IsUpload($destination);
         $upload->setMaxSize($max);
