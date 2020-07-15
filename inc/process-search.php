@@ -8,28 +8,21 @@ if (isset($_POST['qTags'])) {
     if (isset($q)) {
         if (count($q) > 0) {
 
-            $q_string = '';
-            $q_string_ids = '';
-            $q_string_tags = '';
+            $records = get_records($result['img_data'], $q);
 
-            // record ids
-            foreach ($q as $rec_id) {
-                $q_string_ids .= $rec_id . ',';
-            }
-            $q_string_ids = trim($q_string_ids, ',');
+            $queried_results = array(
+                'record_count' => count($records),
+                'img_data' => $records,
+                'terms' => $result['terms'],
+                'term_rels' => $result['term_rels'],
+                'status' => $result['status'],
+                'err_msg' => $result['err_msg']
+            );
 
-            // term ids
-            foreach ($queried_tags as $term_id) {
-                $q_string_tags .= $term_id . ',';
-
-            }
-            $q_string_tags = trim($q_string_tags, ',');
-
-            // setup the final query string
-            $q_string = '?q=' . $q_string_ids . '&qt=' . $q_string_tags;
-
-            $redirect ='Location: ' . $home . $q_string;
-            header($redirect);
+            // redefine $result
+            $result = $queried_results;
         }
+
+        require_once('../admin/search-results.php');
     }
 }

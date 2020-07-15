@@ -22,15 +22,15 @@ if (isset ($_GET['t'])) {
 
     // process record ids from a search
     // and tags from that search
-    $q = get_all_qs($_GET['q']);
-    $t = get_all_qs($_GET['qt']);
-    $records = get_records($result['img_data'], $q);
-    // record ids
-    $query_ids = 'q=' . $_GET['q'];
-    array_push($url_queries, $query_ids);
-    // query tag ids
-    $query_t = 'qt=' . $_GET['qt'];
-    array_push($url_queries, $query_t);
+    // $q = get_all_qs($_GET['q']);
+    // $t = get_all_qs($_GET['qt']);
+    // $records = get_records($result['img_data'], $q);
+    // // record ids
+    // $query_ids = 'q=' . $_GET['q'];
+    // array_push($url_queries, $query_ids);
+    // // query tag ids
+    // $query_t = 'qt=' . $_GET['qt'];
+    // array_push($url_queries, $query_t);
 
 } else {
     // get all of the records
