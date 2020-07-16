@@ -32,7 +32,6 @@ if ($success) {
             ));
         }
 
-
         if (count($result['img_data']) == 0) {
             $result['status'] = 1;
             $result['err_msg'] = 'There is no data available.';

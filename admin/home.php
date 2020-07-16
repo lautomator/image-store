@@ -8,29 +8,14 @@ $t = array();
 $item_queries = '';
 $has_returned = false;
 
-// process GET params
+// process any GET params
 if (isset ($_GET['t'])) {
-
     // process a tag query
     $t = get_all_qs($_GET['t']);
     $record_ids = filter_records($result['term_rels'], $t);
     $records = get_records($result['img_data'], $record_ids);
     $query_tags = 't=' . $_GET['t'];
     array_push($url_queries, $query_tags);
-
-} else if (isset($_GET['q']) && isset($_GET['qt'])) {
-
-    // process record ids from a search
-    // and tags from that search
-    // $q = get_all_qs($_GET['q']);
-    // $t = get_all_qs($_GET['qt']);
-    // $records = get_records($result['img_data'], $q);
-    // // record ids
-    // $query_ids = 'q=' . $_GET['q'];
-    // array_push($url_queries, $query_ids);
-    // // query tag ids
-    // $query_t = 'qt=' . $_GET['qt'];
-    // array_push($url_queries, $query_t);
 
 } else {
     // get all of the records

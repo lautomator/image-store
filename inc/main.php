@@ -515,4 +515,3 @@ function parse_url_queries($q) {
     return $q_string;
 }
 
-
