@@ -18,19 +18,28 @@ if (isset ($_GET['t'])) {
     $query_tags = 't=' . $_GET['t'];
     array_push($url_queries, $query_tags);
 
-} else if (isset($_GET['q']) && isset($_GET['qt'])) {
+} else if (isset($_POST['qTags'])) {
 
-    // process record ids from a search
-    // and tags from that search
-    // $q = get_all_qs($_GET['q']);
-    // $t = get_all_qs($_GET['qt']);
-    // $records = get_records($result['img_data'], $q);
-    // // record ids
-    // $query_ids = 'q=' . $_GET['q'];
-    // array_push($url_queries, $query_ids);
-    // // query tag ids
-    // $query_t = 'qt=' . $_GET['qt'];
-    // array_push($url_queries, $query_t);
+    require_once('inc/select-tags.php');
+
+    if (isset($q)) {
+        if (count($q) > 0) {
+
+            $records = get_records($result['img_data'], $q);
+
+            $queried_results = array(
+                'record_count' => count($records),
+                'img_data' => $records,
+                'terms' => $result['terms'],
+                'term_rels' => $result['term_rels'],
+                'status' => $result['status'],
+                'err_msg' => $result['err_msg']
+            );
+
+            // redefine $result
+            $result = $queried_results;
+        }
+    }
 
 } else {
     // get all of the records
