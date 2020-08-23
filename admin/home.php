@@ -8,34 +8,38 @@ $t = array();
 $item_queries = '';
 $has_returned = false;
 
+// *****************
+//  SORTING/QUERIES
+// *****************
+
 // process GET params
 if (isset ($_GET['t'])) {
-
     // process a tag query
     $t = get_all_qs($_GET['t']);
-    $record_ids = filter_records($result['term_rels'], $t);
+
+    if (count($t) == 1) {
+        // process a SINGLE tag query
+        $record_ids = filter_records($result['term_rels'], $t);
+    } else {
+        // process a MULTIPLE tags query
+        $record_ids = q_search($t, $result['term_rels']);
+    }
+
+    // get the records to be rendered
     $records = get_records($result['img_data'], $record_ids);
+
+    // for pagination and urls
     $query_tags = 't=' . $_GET['t'];
     array_push($url_queries, $query_tags);
-
-} else if (isset($_GET['q']) && isset($_GET['qt'])) {
-
-    // process record ids from a search
-    // and tags from that search
-    // $q = get_all_qs($_GET['q']);
-    // $t = get_all_qs($_GET['qt']);
-    // $records = get_records($result['img_data'], $q);
-    // // record ids
-    // $query_ids = 'q=' . $_GET['q'];
-    // array_push($url_queries, $query_ids);
-    // // query tag ids
-    // $query_t = 'qt=' . $_GET['qt'];
-    // array_push($url_queries, $query_t);
-
 } else {
-    // get all of the records
+    // get ALL of the records
     $records = $result['img_data'];
 }
+
+
+// ************
+//  PAGINATION
+// ************
 
 // handle pagination GET params
 if (isset ($_GET['p'])) {
@@ -58,6 +62,11 @@ if (isset($_GET['return'])) {
         $has_returned = true;
     }
 }
+
+
+// ************
+//  VIEW LOGIC
+// ************
 
 // setup vars for page rendering
 if (! empty($records)) {
