@@ -1,5 +1,7 @@
 <?php
 
+$redirect = $home . $urls['home']; // will add queries if any
+
 if (isset($_POST['qTags'])) {
 
     require_once('select-tags.php');
@@ -22,6 +24,6 @@ if (isset($_POST['qTags'])) {
             $result = $queried_results;
         }
 
-        require_once('../admin/search-results.php');
+        // require_once('../admin/search-results.php');
     }
 }

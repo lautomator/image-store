@@ -1,5 +1,5 @@
 <?php if (isset($all_terms) > 0): ?>
-    <form method="get" action="<?php echo $home . $urls['home']; ?>" class="form-inline">
+    <form method="get" action="../inc/process-search.php" class="form-inline">
         <div class="row">
             <?php foreach ($all_terms as $terms): ?>
                 <div class="col-md-3">
