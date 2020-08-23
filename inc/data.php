@@ -7,7 +7,7 @@ $result = array(
     'img_data' => array(),
     'terms' => array(),
     'term_rels' => array(),
-    'status' => 0, // 0 = ok; 1 = not ok
+    'status' => 0, // 0 = ok; 1 = connection/sql error
     'err_msg' => ''
 );
 

@@ -8,43 +8,30 @@ $t = array();
 $item_queries = '';
 $has_returned = false;
 
+// *********
+//  SORTING
+// *********
+
 // process GET params
 if (isset ($_GET['t'])) {
 
-    // process a tag query
+    // process a SINGLE tag query
     $t = get_all_qs($_GET['t']);
-    $record_ids = filter_records($result['term_rels'], $t);
-    $records = get_records($result['img_data'], $record_ids);
-    $query_tags = 't=' . $_GET['t'];
-    array_push($url_queries, $query_tags);
-
-} else if (isset($_POST['qTags'])) {
-
-    require_once('inc/select-tags.php');
-
-    if (isset($q)) {
-        if (count($q) > 0) {
-
-            $records = get_records($result['img_data'], $q);
-
-            $queried_results = array(
-                'record_count' => count($records),
-                'img_data' => $records,
-                'terms' => $result['terms'],
-                'term_rels' => $result['term_rels'],
-                'status' => $result['status'],
-                'err_msg' => $result['err_msg']
-            );
-
-            // redefine $result
-            $result = $queried_results;
-        }
-    }
+    // $record_ids = filter_records($result['term_rels'], $t);
+    // $records = get_records($result['img_data'], $record_ids);
+    // $query_tags = 't=' . $_GET['t'];
+    // array_push($url_queries, $query_tags);
+    print_r($t);
 
 } else {
-    // get all of the records
+    // get ALL of the records
     $records = $result['img_data'];
 }
+
+
+// ************
+//  PAGINATION
+// ************
 
 // handle pagination GET params
 if (isset ($_GET['p'])) {
@@ -67,6 +54,10 @@ if (isset($_GET['return'])) {
         $has_returned = true;
     }
 }
+
+// ************
+//  VIEW LOGIC
+// ************
 
 // setup vars for page rendering
 if (! empty($records)) {
@@ -92,3 +83,29 @@ if (! empty($records)) {
         $item_queries .= '&' . $query_t;
     }
 }
+
+
+
+// ******
+// else if (isset($_GET['qTags'])) {
+
+//     require_once('inc/select-tags.php');
+
+//     if (isset($q)) {
+//         if (count($q) > 0) {
+
+//             $records = get_records($result['img_data'], $q);
+
+//             $queried_results = array(
+//                 'record_count' => count($records),
+//                 'img_data' => $records,
+//                 'terms' => $result['terms'],
+//                 'term_rels' => $result['term_rels'],
+//                 'status' => $result['status'],
+//                 'err_msg' => $result['err_msg']
+//             );
+
+//             // redefine $result
+//             $result = $queried_results;
+//         }
+//     }
