@@ -39,10 +39,17 @@ if (isset($_POST['qTags'])) {
     }
 
     if ($query_success) {
+        $redirect = 'Location: ' . $home . $urls['home'];
+        $tags_query = '?t=';
 
-        echo '<pre>';
-        print_r($q_term_ids);
-        echo '</pre>';
+        // add the tags to a query string
+        foreach ($q_term_ids as $id) {
+            $tags_query .= $id . ',';
+        }
+
+        $tags_query = trim($tags_query, ',');
+
+        header($redirect . $tags_query);
     }
 }
 
