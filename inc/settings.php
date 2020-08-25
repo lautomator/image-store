@@ -14,7 +14,7 @@ $cache = rand(); // dev only
 // $cache = '2018-11-14';
 
 // pages
-$max_records_per_page = 10;
+$max_records_per_page = 25;
 $default_page = 1;
 
 // pages that use the main javascript
