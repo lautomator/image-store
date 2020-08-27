@@ -4,7 +4,7 @@
             <div class="col-md-5">
                 <form method="post" action="../inc/add-term.php" class="form-inline">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="addTag" id="addTag" placeholder="Tag (16 chars max)" value="" maxlength="16" required>
+                        <input type="text" class="form-control" name="addTag" id="addTag" placeholder="Tag (16 chars max)" value="" maxlength="16" required autofocus>
                         <input name="imgId" value="<?php echo $img_id; ?>" type="hidden">
                         <input name="p" value="<?php echo $page_no; ?>" type="hidden">
                         <input class="btn-success form-control" type="submit" value="Add">
