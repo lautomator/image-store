@@ -1,6 +1,6 @@
 <?php
 
-$home = 'http://dev.local/image-store/';
+$home = 'http://localhost:8080/image-store/';
 $static_dir = $home . 'static/';
 $admin_dir = $home . 'admin/';
 $uploads_dir = $home . 'test-uploads/';
