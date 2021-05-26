@@ -7,7 +7,7 @@ body {
     height: 100%;
 }
 
-.ist-thumb-img { height: 100px; }
+.ist-thumb-img { width: 100%; }
 
 .ist-seq-thmb { height: 25px; }
 
@@ -105,6 +105,7 @@ input { margin: 4px 4px 4px 0; }
 .navbar {
     position: sticky;
     top: 0;
+    width: 100%;
     z-index: 100;
 }
 
@@ -130,12 +131,11 @@ input { margin: 4px 4px 4px 0; }
 /* desktop only */
 @media screen and (min-width: 768px) {
     .ist-thumb-img {
-        height: 100px;
-        -webkit-transition: height 1s; /* Safari */
-        transition: height 1s;
+        transition: opacity 1s;
+        width: 100%;
     }
 
-    .ist-thumb-img:hover { height: 400px; }
+    .ist-thumb-img:hover { opacity: 0.5; }
 
     .ist-review-img {
         max-height: 450px;

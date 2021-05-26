@@ -4,28 +4,19 @@
     <?php elseif (isset($no_records_warn)): ?>
         <p class="text-warning"><?php echo $no_records_warn; ?></p>
     <?php else: ?>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>&nbsp;</th>
-                    <th>Name</th>
-                    <th>Tags</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($page_items as $row): ?>
-                    <?php if (! empty($row)): ?>
-                        <?php $img_id = $row['file_id']; ?>
-                        <?php $item_terms = get_terms($result['term_rels'], $img_id); ?>
-                        <tr id="<?php echo $img_id; ?>">
-                            <td><?php require('view-img-thmb.php'); ?></td>
-                            <td><?php require('view-img-title.php'); ?></td>
-                            <td><?php require('view-img-tags.php'); ?></td>
-                        <tr>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div class="row">
+        <?php foreach($page_items as $row): ?>
+            <?php if (! empty($row)): ?>
+                <?php 
+                    $img_id = $row['file_id'];
+                    $item_terms = get_terms($result['term_rels'], $img_id); 
+                ?>
+                <div id="<?php echo $img_id; ?>" class="col-md-2">
+                    <?php require('view-img-thmb.php'); ?>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        </div>
 
         <?php require('view-img-page-nav.php'); ?>
 
