@@ -1,32 +1,21 @@
 <div class="container">
     <?php if (! $cart_empty): ?>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>&nbsp;</th>
-                    <th><?php echo (count($cart_items) == $cart_size) ? 'Order' : ''; ?></th>
-                    <th>Name</th>
-                    <th>Tags</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($cart_items as $row): ?>
-                    <?php $item_terms = get_terms($result['term_rels'], $row['file_id']); ?>
-                    <tr>
-                        <td><?php require('view-img-thmb.php'); ?></td>
-                        <?php if (count($cart_items) == $cart_size): ?>
-                            <td><input class="cart_sequence_options" value="<?php echo key($cart_items) + 1; ?>" type="number" name="<?php echo key($cart_items); ?>" max="<?php echo $cart_size; ?>" min="1"></td>
-                        <?php else: ?>
-                            <td>&nbsp;</td>
-                        <?php endif; ?>
-                        <td><?php require('view-img-title.php'); ?></td>
-                        <td><?php require('view-img-tags.php'); ?></td>
-                    <tr>
-                    <?php next($cart_items); ?>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div class="row">
+            <?php foreach($cart_items as $row): ?>
+            <?php $item_terms = get_terms($result['term_rels'], $row['file_id']); ?>
+            
+            <div class="col-md-4">
+                <?php require('view-img-thmb.php'); ?>
+                <?php if (count($cart_items) == $cart_size): ?>
+                    <p><input class="cart_sequence_options" value="<?php echo key($cart_items) + 1; ?>" type="number" name="<?php echo key($cart_items); ?>" max="<?php echo $cart_size; ?>" min="1"></p>
+                    <?php require('view-img-tags.php'); ?>
+                <?php endif; ?>
+            </div>
+            <?php next($cart_items); ?>
+            <?php endforeach; ?>
 
+        </div>
+                
         <div class="row">
             <div class="col-md-3">
                 <form method="post" action="../inc/clear-cart.php">
