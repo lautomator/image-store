@@ -188,4 +188,11 @@ input { margin: 4px 4px 4px 0; }
         position: absolute;
         top: 50px;
     }
+
+    .tiled-img {
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 210px;
+        overflow: hidden;
+        padding: 0;
+    }
 }

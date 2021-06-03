@@ -9,9 +9,9 @@
             <?php if (! empty($row)): ?>
                 <?php 
                     $img_id = $row['file_id'];
-                    $item_terms = get_terms($result['term_rels'], $img_id); 
+                    // $item_terms = get_terms($result['term_rels'], $img_id); 
                 ?>
-                <div id="<?php echo $img_id; ?>" class="col-md-2">
+                <div id="<?php echo $img_id; ?>" class="col-md-2 tiled-img">
                     <?php require('view-img-thmb.php'); ?>
                 </div>
             <?php endif; ?>
