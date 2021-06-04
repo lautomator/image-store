@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <?php if ($result['status'] == 1): ?>
         <p class="text-danger"><?php echo $result['err_msg']; ?></p>
     <?php elseif (isset($no_records_warn)): ?>
