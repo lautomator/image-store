@@ -80,6 +80,12 @@ input { margin: 4px 4px 4px 0; }
     word-break: normal;
 }
 
+.ist-form-suggestions-panel-static {
+    display: block;
+    width: 100%;
+    word-break: normal;
+}
+
 .ist-form-suggestions span {
     color: limegreen;
     cursor: pointer;

@@ -21,7 +21,11 @@
                 imageStoreApp.targets["tagSuggestion"] = document.getElementsByClassName("ist-tag-suggestion");
 
                 // listen for input
-                imageStoreApp.inputListener(imageStoreApp.targets);
+                // imageStoreApp.inputListener(imageStoreApp.targets);
+
+                // show all tags
+                imageStoreApp.showAllTags(imageStoreApp.currentTags);
+
             </script>
         <?php endif; ?>
 

@@ -2,6 +2,25 @@ var imageStoreApp = {
     "targets": {},
     "currentTags": [],
     "cartOrder": {},
+    showAllTags: function (allTags) {
+        // this is in lieu of entering
+        // a tag for a suggestion
+        "use strict";
+        var index = 0;
+
+        // render the tags
+        if (allTags.length > 0) {
+            imageStoreApp.targets.formSuggestions[0].innerHTML = "";
+            while (index < allTags.length) {
+                imageStoreApp.targets.formSuggestions[0].innerHTML += 
+                    "<span class='ist-tag-suggestion'>" + allTags[index] + "</span>";
+                index += 1;
+            }
+        }
+
+        // listen for clicks
+        imageStoreApp.clickListener(imageStoreApp.targets);
+    },
     tagPrefill: function (tags, uInput) {
         "use strict";
         // check if user input matches any possible tag.
