@@ -46,12 +46,18 @@ function get_term_name($terms, $term_id) {
     // Returns the name of the term <str>
     // from the given term id <int>. Takes
     // in the terms <array> and the term
-    // id <int>.
+    // id <int>. If there is a label, the
+    // label is returned instead of the name.
     $term_name = '';
 
     foreach ($terms as $term) {
         if ($term['term_id'] == $term_id) {
-            $term_name = $term['term_name'];
+            if ($term['term_label'] != '') {
+                $term_name = $term['term_label'];
+            } else {
+                $term_name = $term['term_name'];
+            }
+
             break;
         }
     }

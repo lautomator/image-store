@@ -52,8 +52,25 @@ if ($success) {
             array_push($result['terms'], array(
                 'term_id' => $row['term_id'],
                 'term_name' => $row['term_name'],
-                'term_slug' => $row['term_slug']
+                'term_slug' => $row['term_slug'],
+                'term_label' => ''
             ));
+        }
+    }
+
+    // update terms with symbols
+    $term_symbol_exceptions = array(2, 9, 58);
+    $index = 0;
+
+    if (! empty($result['terms'])) {
+        while ($index < count($result['terms'])) {
+            if (in_array(
+                $result['terms'][$index]['term_id'],
+                $term_symbol_exceptions)) {
+                    $result['terms'][$index]['term_label'] = '&starf;' .
+                        $result['terms'][$index]['term_name'];
+            }
+            $index += 1;
         }
     }
 
