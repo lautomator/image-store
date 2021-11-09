@@ -48,6 +48,7 @@ if (isset($_POST)) {
     }
 
     if ($valid) {
+        $index = 0;
         // add the image ids and sequence to one array
         while ($index < count($all_cart_img_ids)) {
             array_push($ids_img_order, array('id' => $all_cart_img_ids[$index], 'ord' => $image_sequence[$index]));

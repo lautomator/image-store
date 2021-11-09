@@ -3,6 +3,7 @@
 $page = 'cart';
 $cart_empty = true;
 $cart_full = false;
+$cart_items = array();
 
 require_once('../inc/session.php');
 require_once('../inc/loader.php');

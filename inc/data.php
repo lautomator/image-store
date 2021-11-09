@@ -53,13 +53,13 @@ if ($success) {
                 'term_id' => $row['term_id'],
                 'term_name' => $row['term_name'],
                 'term_slug' => $row['term_slug'],
-                'term_label' => ''
+                'term_label' => $row['term_name']
             ));
         }
     }
 
-    // update terms with symbols
-    $term_symbol_exceptions = array(2, 9, 58);
+    // update terms with symbols and add labels
+    $term_symbol_exceptions = array(2, 9, 58); // TODO should be from the UI
     $index = 0;
 
     if (! empty($result['terms'])) {
@@ -93,3 +93,4 @@ if ($success) {
     $result['status'] = 1;
     $result['err_msg'] = 'Could not connect to the database.';
 }
+
