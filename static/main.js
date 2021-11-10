@@ -126,7 +126,7 @@ var imageStoreApp = {
         var bgSize = 100;
         var bgPosX = 0;
         var bgPosY = 0;
-        var bgIncr = 25;
+        var bgIncr = 10;
 
         while (index < target.length) {
             target[index].addEventListener("click", function(item) {
