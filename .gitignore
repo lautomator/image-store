@@ -2,3 +2,5 @@
 inc/config.php
 uploads
 test-uploads
+utils/convert-images.php
+
