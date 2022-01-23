@@ -12,8 +12,9 @@ $col_vals = '';
 $image_names = get_image_names($result['img_data']);
 $dup_names = array();
 $unq_names = array();
+$all_uploaded = array();
 
-# move the file out of its temp location to another location
+# copy the file in its temp location to another location
 if (isset($_POST['upload'])) {
     # define the path to the upload folder
     $destination = '../uploads/';
@@ -31,7 +32,7 @@ if (isset($_POST['upload'])) {
     }
 }
 
-// upload is a success, can write to databse
+// upload is a success, write the path/filename to the databse
 if (isset($upload_file_info)) {
     if ($upload_status == 0) {
         $ul_file_path = str_replace('../', '', $destination);
@@ -57,6 +58,8 @@ if (isset($upload_file_info)) {
                 $col_vals .= '(' . '"' . $ul_file_path . '"' . ', ' . '"' . $ul_file_name . '"' . ', ' . '"' . $ul_file_ext . '"' . '),';
                 array_push($unq_names, $ul_file_name);
             }
+
+            array_push($all_uploaded, $ul_file_name . '.' . $ul_file_ext);
         }
 
         if ($col_vals != '') {
@@ -78,3 +81,14 @@ if (isset($upload_file_info)) {
     }
 }
 
+// create thumbnail images 220x200
+if (isset($upload_file_info)) {
+    if ($upload_status == 0) {
+        foreach($all_uploaded as $uploaded_file) {
+            $name_exploded = explode('.', $uploaded_file);
+
+            shell_exec('magick ../uploads/' . $uploaded_file . ' -resize 200 -crop 200x200+0 ' .
+                '../uploads/' . $name_exploded[0] . '_200.' . $name_exploded[1]);
+        }
+    }
+}
