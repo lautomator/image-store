@@ -133,40 +133,41 @@ var imageStoreApp = {
                 if (item.target.textContent === "+") {
                     // increase
                     // convert to number and remove "%"
-                    bgSize = Number(item.path[3].style.backgroundSize.replace("%", ""));
+                    // console.log(item.target.offsetParent.parentNode);
+                    bgSize = Number(item.target.offsetParent.parentNode.style.backgroundSize.replace("%", ""));
                     bgSize += bgIncr;
                     bgSize = bgSize.toString() + "%";
-                    item.path[3].style.backgroundSize = bgSize;
+                    item.target.offsetParent.parentNode.style.backgroundSize = bgSize;
                 } else if (item.target.textContent === "–") {
                     // reduce
                     // convert to number and remove "%"
-                    bgSize = Number(item.path[3].style.backgroundSize.replace("%", ""));
+                    bgSize = Number(item.target.offsetParent.parentNode.style.backgroundSize.replace("%", ""));
                     bgSize -= bgIncr;
                     bgSize = bgSize.toString() + "%";
-                    item.path[3].style.backgroundSize = bgSize;
+                    item.target.offsetParent.parentNode.style.backgroundSize = bgSize;
                 } else if (item.target.textContent === "←") {
                     // move left
                     // convert to number and remove "px"
-                    bgPosX = Number(item.path[3].style.backgroundPositionX.replace("px", ""));
+                    bgPosX = Number(item.target.offsetParent.parentNode.style.backgroundPositionX.replace("px", ""));
                     bgPosX -= bgIncr;
-                    item.path[3].style.backgroundPositionX = bgPosX.toString() + "px";
+                    item.target.offsetParent.parentNode.style.backgroundPositionX = bgPosX.toString() + "px";
                 } else if (item.target.textContent === "→") {
                     // move right
                     // convert to number and remove "px"
-                    bgPosX = Number(item.path[3].style.backgroundPositionX.replace("px", ""));
+                    bgPosX = Number(item.target.offsetParent.parentNode.style.backgroundPositionX.replace("px", ""));
                     bgPosX += bgIncr;
-                    item.path[3].style.backgroundPositionX = bgPosX.toString() + "px";
+                    item.target.offsetParent.parentNode.style.backgroundPositionX = bgPosX.toString() + "px";
                 } else if (item.target.textContent === "↑") {
                     // move up
                     // convert to number and remove "px"
-                    bgPosY = Number(item.path[3].style.backgroundPositionY.replace("px", ""));
+                    bgPosY = Number(item.target.offsetParent.parentNode.style.backgroundPositionY.replace("px", ""));
                     bgPosY -= bgIncr;
-                    item.path[3].style.backgroundPositionY = bgPosY.toString() + "px";
+                    item.target.offsetParent.parentNode.style.backgroundPositionY = bgPosY.toString() + "px";
                 } else {
                     // move down
-                    bgPosY = Number(item.path[3].style.backgroundPositionY.replace("px", ""));
+                    bgPosY = Number(item.target.offsetParent.parentNode.style.backgroundPositionY.replace("px", ""));
                     bgPosY += bgIncr;
-                    item.path[3].style.backgroundPositionY = bgPosY.toString() + "px";
+                    item.target.offsetParent.parentNode.style.backgroundPositionY = bgPosY.toString() + "px";
                 }
             }, false);
             index += 1;
