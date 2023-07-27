@@ -43,7 +43,7 @@ if ($can_add_term) {
     require_once('connect.php');
 
     // insert the new term in to the database
-    if ($success) {
+    if ($link) {
 
         $sql = 'INSERT INTO terms (term_name, term_slug) VALUES ' . "('{$term_name}', '{$term_slug}')";
 

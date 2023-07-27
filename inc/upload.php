@@ -67,7 +67,7 @@ if (isset($upload_file_info)) {
 
             require_once('connect.php');
 
-            if ($success) {
+            if ($link) {
                 $sql = 'INSERT INTO images (file_path, file_name, file_ext) VALUES ' . $col_vals;
 
                 if (!mysqli_query($link, $sql)) {

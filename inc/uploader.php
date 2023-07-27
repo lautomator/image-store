@@ -59,10 +59,10 @@ class IsUpload {
             # if both of the above conditions are met commence with the upload
             if ($sizeOK && $typeOK) {
                 $name = $this->checkName($filename, $overwrite);
-                $success = move_uploaded_file($tmp_name, $this->_destination .
+                $up_success = move_uploaded_file($tmp_name, $this->_destination .
                     $name);
                 # determine if a successful upload has occured
-                if ($success) {
+                if ($up_success) {
                     $message = $filename . ' uploaded successfully';
                     $this->_file_info[] = $filename;
                     if ($this->_renamed) {

@@ -32,7 +32,7 @@ if (isset($img_id)) {
 if ($can_add_term_rel) {
     require_once('connect.php');
 
-    if ($success) {
+    if ($link) {
         $sql = 'INSERT INTO term_rels (file_id, term_id) VALUES ' . "('{$img_id}', '{$term_id}')";
 
         if (!mysqli_query($link, $sql)) {

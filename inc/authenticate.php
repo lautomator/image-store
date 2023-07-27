@@ -26,7 +26,12 @@ function validate_password($password, $pw, $salt) {
 
 $users = array();
 
-if ($success) {
+if ($link->connect_error) {
+    echo 'Errno: '.$mysqli->connect_errno;
+    echo '<br>';
+    echo 'Error: '.$mysqli->connect_error;
+    exit();
+} else {
     // fetch the data
     $sql = 'SELECT * FROM users';
 
@@ -47,10 +52,9 @@ if ($success) {
         }
         $result_users->close();
     }
-    mysqli_close($link);
-} else {
-    exit('Database connection was not established.');
 }
+
+$link->close();
 
 // field check: unsername
 if (isset($_POST['username']) && !$_POST['username'] == '') {

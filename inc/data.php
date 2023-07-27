@@ -11,7 +11,7 @@ $result = array(
     'err_msg' => ''
 );
 
-if ($success) {
+if ($link) {
     $sql_images = 'SELECT * FROM images ORDER BY file_id DESC';
     $sql_terms = 'SELECT * FROM terms ORDER BY term_id DESC';
     $sql_term_rels = 'SELECT * FROM term_rels ORDER BY rel_id DESC';
