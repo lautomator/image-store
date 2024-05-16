@@ -8,9 +8,6 @@
                         <input name="imgId" value="<?php echo $img_id; ?>" type="hidden">
                         <input name="p" value="<?php echo $page_no; ?>" type="hidden">
                         <input class="btn-success form-control" type="submit" value="Add">
-<!--                         <div class="ist-form-suggestions-panel">
-                            <div class="ist-form-suggestions"><span class="ist-tag-suggestion">&nbsp;</span></div>
-                        </div> -->
                     </div>
                 </form>
                 <?php if (isset($err_msg)): ?>
@@ -28,3 +25,7 @@
         </div>
     <?php endif; ?>
 </div>
+<script>
+    var tagFieldEl = document.getElementById("addTag");
+    tagFieldEl.addEventListener("keypress", function() { console.log("this changed")});
+</script>

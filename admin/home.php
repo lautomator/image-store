@@ -7,6 +7,7 @@ $query = '';
 $t = array();
 $item_queries = '';
 $has_returned = false;
+$current_page = 1;
 
 // *****************
 //  SORTING/QUERIES
@@ -42,18 +43,16 @@ if (isset ($_GET['t'])) {
 // ************
 
 // handle pagination GET params
+$total_pages = ceil(count($records) / $max_records_per_page);
 if (isset ($_GET['p'])) {
     // process a page query
     $current_page = $_GET['p'];
-    $total_pages = ceil(count($records) / $max_records_per_page);
 
     if ($current_page > $total_pages) {
         $current_page = $total_pages;
     }
 
     $query_p = 'p=' . $current_page;
-} else {
-    $current_page = $default_page;
 }
 
 // handle a return to home page to trigger the scroll compensation
